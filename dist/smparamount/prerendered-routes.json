@@ -1,0 +1,23 @@
+{
+  "routes": {
+    "/": {},
+    "/about": {},
+    "/blog/choosing-the-right-water-softener": {},
+    "/blog/signs-of-hard-water": {},
+    "/blog/water-softener-maintenance-tips": {},
+    "/calculator": {},
+    "/careers": {},
+    "/contact": {},
+    "/faq": {},
+    "/gallery": {},
+    "/how-it-works": {},
+    "/products/carbon-filters": {},
+    "/products/iron-filters": {},
+    "/products/purolite-softener-resin": {},
+    "/products/ro-water-purifiers": {},
+    "/products/sand-filters": {},
+    "/products/water-softeners": {},
+    "/services": {},
+    "/testimonials": {}
+  }
+}

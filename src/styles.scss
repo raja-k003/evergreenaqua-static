@@ -1,0 +1,10 @@
+/*
+ * Global design system. Colour tokens (--color-*) come from the active theme
+ * preset (src/app/core/theme/themes.ts) and are rendered into <head> on the
+ * server. Everything here only references tokens, so all five presets and
+ * custom brand colours work without extra CSS.
+ */
+@use 'styles/base';
+@use 'styles/layout';
+@use 'styles/components';
+@use 'styles/forms';

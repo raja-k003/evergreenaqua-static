@@ -1,0 +1,167 @@
+import { image, SiteImage } from './images';
+
+export interface RoPurifier {
+  name: string;
+  brand: string;
+  price: number;
+  mounting: string;
+  stages: string[];
+  highlights: string[];
+  image: SiteImage;
+}
+
+export const RO_PURIFIERS: RoPurifier[] = [
+  {
+    name: 'Aqua 2090 RO + UF + UV',
+    brand: 'Aqua',
+    price: 9990,
+    mounting: 'Wall or tabletop',
+    stages: ['RO', 'UF', 'UV', 'Alkaline', 'Copper'],
+    highlights: ['LED display', 'Compact cabinet'],
+    image: image('ro-aqua-2090', 'Aqua 2090 RO UF UV water purifier, front view'),
+  },
+  {
+    name: 'Emerald RO + UV + Alkaline',
+    brand: 'Aqua',
+    price: 15990,
+    mounting: 'Wall mount',
+    stages: ['RO', 'UF', 'UV', 'Alkaline', 'Copper'],
+    highlights: ['11 W UV lamp', 'Suits input TDS below 500 ppm', 'LED indicators'],
+    image: image('ro-uv-alkaline-water-purifier', 'Wall-mounted RO + UV + alkaline water purifier with its box'),
+  },
+  {
+    name: 'Euro Hot & Normal RO (Marino Hot)',
+    brand: 'Euro',
+    price: 21990,
+    mounting: 'Wall mount',
+    stages: ['RO', 'UV', 'Alkaline', 'Copper'],
+    highlights: ['Hot and normal water', 'Smart glass touch panel', 'Auto level sensor', 'Food-grade ABS body'],
+    image: image('ro-hot-normal-water-purifier', 'Hot and normal RO + UV water purifiers with glass touch panels'),
+  },
+  {
+    name: 'Kent Sterling Star (Under-counter)',
+    brand: 'Kent',
+    price: 24990,
+    mounting: 'Under-counter',
+    stages: ['RO', 'UV', 'Alkaline', 'Copper'],
+    highlights: ['LED display', 'Auto flush', 'Toughened glass front'],
+    image: image('ro-kent-sterling-star-under-counter', 'Kent Sterling Star RO purifier installed under a kitchen counter'),
+  },
+  {
+    name: 'Kent Crystal Star (Black)',
+    brand: 'Kent',
+    price: 25000,
+    mounting: 'Wall or tabletop',
+    stages: ['RO', 'UV', 'Alkaline', 'Copper'],
+    highlights: ['Smart LED display', 'Auto flush'],
+    image: image('ro-kent-crystal-star-black', 'Kent Crystal Star black RO water purifier'),
+  },
+];
+
+/** Illustrated avatar (original artwork, not a photo of a real person). Set `photo` only for a customer who agreed to appear. */
+export interface Avatar {
+  gender: 'f' | 'm';
+  skin: string;
+  hair: string;
+  cloth: string;
+  stache?: boolean;
+  glasses?: boolean;
+  photo?: string;
+}
+
+export interface Testimonial {
+  name: string;
+  quote: string;
+  avatar?: Avatar;
+}
+
+export const TESTIMONIALS: Testimonial[] = [
+  { name: 'Karthika', avatar: { gender: 'f', skin: '#b9774f', hair: '#1d1410', cloth: '#d9487b' }, quote: 'Life-changing! Soft water improved my skin and appliances. The water softener’s quality exceeded my expectations — a must-have for every household.' },
+  { name: 'Kayal Vizhi', avatar: { gender: 'f', skin: '#a86a45', hair: '#17100d', cloth: '#0f9d8a' }, quote: 'Soft water made a huge difference at home. The softener’s efficiency and durability are unmatched. Highly recommended!' },
+  { name: 'Murugan', avatar: { gender: 'm', skin: '#8a5636', hair: '#16100d', cloth: '#3558d6', stache: true }, quote: 'An incredible impact on our laundry and plumbing. A small investment brought a significant positive change.' },
+  { name: 'Anitha Kumar', avatar: { gender: 'f', skin: '#c2855c', hair: '#221611', cloth: '#e0932a' }, quote: 'This water softener exceeded expectations. Showering is a delight now and my skin thanks me. A must for every home.' },
+  { name: 'Ashok Kumar', avatar: { gender: 'm', skin: '#9c6340', hair: '#1a1411', cloth: '#2f8f5b', glasses: true }, quote: 'Clear water and our appliances are working well. The softener has exceeded our expectations.' },
+  { name: 'Shalini Natarajan', avatar: { gender: 'f', skin: '#b17a52', hair: '#1b130f', cloth: '#7a4fd1' }, quote: 'We noticed the improvement immediately — no more scale build-up on taps and tiles. Top-notch softener.' },
+];
+
+export interface Faq {
+  q: string;
+  a: string;
+}
+
+export const FAQ_GROUPS: { title: string; items: Faq[] }[] = [
+  {
+    title: 'Water softeners',
+    items: [
+      { q: 'Why invest in a water softener?', a: 'A softener stops scale from forming on taps, tiles, geysers and washing machines, so appliances last longer and work more efficiently. Soap and shampoo lather better, and many people find their skin and hair feel softer.' },
+      { q: 'How does ion exchange work?', a: 'Hard water flows through a bed of resin beads. The beads hold on to calcium and magnesium ions and release sodium ions in their place, so the water leaving the softener no longer forms scale. A brine wash recharges the beads when they are saturated.' },
+      { q: 'Is softened water safe to drink?', a: 'Generally yes, when the system is set up correctly. Softened water contains a little more sodium, so if you are on a low-sodium diet we can fit a drinking-water bypass or pair the softener with an RO purifier.' },
+      { q: 'Can I use softened water for plants?', a: 'It is fine for most plants. For sodium-sensitive plants, use water from a bypass tap.' },
+      { q: 'How long does a water softener last?', a: 'With regular recharging and periodic resin cleaning, a well-built softener can last 20 years or more.' },
+    ],
+  },
+  {
+    title: 'Installation and maintenance',
+    items: [
+      { q: 'Is installation complicated?', a: 'No. Our systems are compact and need no civil work. We recommend professional installation so the unit is sized, plumbed and set up correctly for your water.' },
+      { q: 'What maintenance is required?', a: 'Very little: keep the brine tank topped up with softener salt and recharge the resin as advised. Filters need a periodic backwash. We can do a yearly service visit if you prefer.' },
+      { q: 'Do the systems need electricity?', a: 'Manual (M-series) softeners and our sand, iron and carbon filters work without electricity and at low water pressure. Automatic (A-series) models use a small amount of power for the control valve.' },
+      { q: 'What warranty do you offer?', a: 'Our products come with a 1-year warranty.' },
+    ],
+  },
+];
+
+export const ALL_FAQS: Faq[] = FAQ_GROUPS.flatMap((g) => g.items);
+
+export interface JobOpening {
+  title: string;
+  type: string;
+  summary: string;
+}
+
+export const JOB_OPENINGS: JobOpening[] = [
+  { title: 'Customer Service Representative', type: 'Full time', summary: 'Be the first point of contact for customers: answer enquiries, schedule visits and follow up after installation.' },
+  { title: 'Technical Support Engineer', type: 'Full time', summary: 'Install, service and troubleshoot water softeners, filters and RO purifiers at customer sites.' },
+  { title: 'Marketing Specialist', type: 'Full time', summary: 'Plan local campaigns, manage social channels and grow awareness of Evergreen Aqua across Chennai.' },
+  { title: 'Operations Coordinator', type: 'Full time', summary: 'Coordinate stock, scheduling and field teams so every installation runs on time.' },
+];
+
+export interface GalleryItem {
+  image: SiteImage;
+  caption: string;
+}
+
+export const GALLERY: GalleryItem[] = [
+  { image: image('terrace-softener-installation', 'Evergreen Aqua softener vessel and blue pre-filter installed on a terrace'), caption: 'Terrace installation' },
+  { image: image('technician-twin-vessel-installation', 'Evergreen Aqua technician beside a twin-vessel installation'), caption: 'Twin-vessel system, ready to commission' },
+  { image: image('twin-filter-vessels-utility-area', 'Two Evergreen Aqua vessels with control valves in a utility area'), caption: 'Twin vessels in a utility area' },
+  { image: image('sm-paramount-team-installation', 'Evergreen Aqua team beside a newly installed water softener'), caption: 'Our team at a completed installation' },
+  { image: image('softener-with-brine-tank', 'Evergreen Aqua softener vessel beside its blue brine tank'), caption: 'Softener with brine tank' },
+  { image: image('sand-filter-and-softener-pair', 'Sand filter and water softener installed side by side'), caption: 'Sand filter and softener pair' },
+  { image: image('twin-vessels-with-pre-filters', 'Two Evergreen Aqua vessels with blue cartridge pre-filters'), caption: 'Vessels with cartridge pre-filters' },
+  { image: image('indoor-softener-and-filter', 'Softener, filter, pre-filter and brine tank installed indoors'), caption: 'Indoor softener and filter' },
+  { image: image('twin-vessels-covered-shed', 'Twin vessels with pipework installed in a covered shed'), caption: 'Installation in a covered shed' },
+  { image: image('cabinet-softener-installation', 'Cabinet-style water softener and blue filter installed by Evergreen Aqua'), caption: 'Cabinet softener installation' },
+];
+
+export interface GalleryVideo {
+  src: string;
+  title: string;
+  /** Length shown on the player, m:ss. */
+  duration: string;
+}
+
+export const GALLERY_VIDEOS: GalleryVideo[] = [
+  { src: '/videos/installation-walkthrough-1.mp4', title: 'Installation walkthrough 1', duration: '0:22' },
+  { src: '/videos/installation-walkthrough-2.mp4', title: 'Installation walkthrough 2', duration: '0:14' },
+  { src: '/videos/installation-walkthrough-3.mp4', title: 'Installation walkthrough 3', duration: '0:20' },
+  { src: '/videos/installation-walkthrough-4.mp4', title: 'Installation walkthrough 4', duration: '0:09' },
+  { src: '/videos/installation-walkthrough-5.mp4', title: 'Installation walkthrough 5', duration: '0:17' },
+  { src: '/videos/installation-walkthrough-6.mp4', title: 'Installation walkthrough 6', duration: '0:19' },
+  { src: '/videos/installation-walkthrough-7.mp4', title: 'Installation walkthrough 7', duration: '0:22' },
+  { src: '/videos/installation-walkthrough-8.mp4', title: 'Installation walkthrough 8', duration: '0:08' },
+  { src: '/videos/installation-walkthrough-9.mp4', title: 'Installation walkthrough 9', duration: '0:31' },
+];
+
+/** Featured YouTube video (YouTube video ID). */
+export const GALLERY_YOUTUBE = { id: '_R86PlGdNus', title: 'Evergreen Aqua water solutions' };

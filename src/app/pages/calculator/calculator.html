@@ -1,0 +1,188 @@
+<app-page-header
+  [breadcrumbs]="breadcrumbs"
+  eyebrow="Softener calculator"
+  title="Water softener calculator"
+  lead="Free tools to size a softener, plan salt and regeneration, and set your multiport valve — from the Evergreen Aqua team."
+/>
+
+<section class="section calc" aria-labelledby="calc-heading">
+  <div class="calc__fx" aria-hidden="true"><span class="calc__blob calc__blob--1"></span><span class="calc__blob calc__blob--2"></span></div>
+  <div class="container">
+    <div class="calc__tabs" role="tablist" aria-label="Calculators">
+      @for (t of tabs; track t.id; let i = $index) {
+        <button
+          type="button"
+          role="tab"
+          class="calc__tab"
+          [id]="'tab-' + t.id"
+          [attr.aria-selected]="active() === t.id"
+          [attr.aria-controls]="'panel-' + t.id"
+          [attr.tabindex]="active() === t.id ? 0 : -1"
+          [class.is-active]="active() === t.id"
+          (click)="select(t.id)"
+          (keydown)="onTabKey($event, i)"
+        >
+          {{ t.label }}
+        </button>
+      }
+    </div>
+
+    @for (t of tabs; track t.id) {
+      @if (active() === t.id) {
+        <div class="calc__panel" role="tabpanel" [id]="'panel-' + t.id" [attr.aria-labelledby]="'tab-' + t.id">
+          <div class="calc__form card">
+            <h2 id="calc-heading">{{ t.title }}</h2>
+            <p class="muted">{{ t.text }}</p>
+
+            @switch (t.id) {
+              @case ('chemistry') {
+                <form class="form" [formGroup]="chemistryForm" (ngSubmit)="calculateChemistry()" novalidate>
+                  <div class="field">
+                    <label for="c-resin">Resin quantity (litres) <span class="req">*</span></label>
+                    <input id="c-resin" type="number" inputmode="decimal" min="0" step="any" formControlName="resin" placeholder="e.g. 50" [attr.aria-invalid]="invalid(chemistryForm.controls.resin)" />
+                    @if (invalid(chemistryForm.controls.resin)) { <p class="error">Enter a number greater than 0.</p> }
+                  </div>
+                  <div class="field">
+                    <label for="c-hard">Water hardness (PPM) <span class="req">*</span></label>
+                    <input id="c-hard" type="number" inputmode="decimal" min="0" step="any" formControlName="hardness" placeholder="e.g. 400" [attr.aria-invalid]="invalid(chemistryForm.controls.hardness)" />
+                    @if (invalid(chemistryForm.controls.hardness)) { <p class="error">Enter a number greater than 0.</p> }
+                  </div>
+                  <div class="calc__actions">
+                    <button appButton type="submit" size="lg">Calculate <app-icon name="arrow-right" [size]="18" /></button>
+                    <button appButton type="button" variant="ghost" (click)="reset()">Reset</button>
+                  </div>
+                </form>
+              }
+              @case ('size') {
+                <form class="form" [formGroup]="sizeForm" (ngSubmit)="calculateSize()" novalidate>
+                  <div class="field">
+                    <label for="s-use">Daily water use (litres) <span class="req">*</span></label>
+                    <input id="s-use" type="number" inputmode="decimal" min="0" step="any" formControlName="dailyUse" placeholder="e.g. 1000" [attr.aria-invalid]="invalid(sizeForm.controls.dailyUse)" />
+                    @if (invalid(sizeForm.controls.dailyUse)) { <p class="error">Enter a number greater than 0.</p> }
+                  </div>
+                  <div class="field">
+                    <label for="s-hard">Water hardness (PPM) <span class="req">*</span></label>
+                    <input id="s-hard" type="number" inputmode="decimal" min="0" step="any" formControlName="hardness" placeholder="e.g. 300" [attr.aria-invalid]="invalid(sizeForm.controls.hardness)" />
+                    @if (invalid(sizeForm.controls.hardness)) { <p class="error">Enter a number greater than 0.</p> }
+                  </div>
+                  <div class="field">
+                    <label for="s-days">Required regeneration frequency (days) <span class="req">*</span></label>
+                    <input id="s-days" type="number" inputmode="decimal" min="0" step="any" formControlName="regenDays" placeholder="e.g. 5" [attr.aria-invalid]="invalid(sizeForm.controls.regenDays)" />
+                    @if (invalid(sizeForm.controls.regenDays)) { <p class="error">Enter a number greater than 0.</p> }
+                  </div>
+                  <div class="calc__actions">
+                    <button appButton type="submit" size="lg">Calculate <app-icon name="arrow-right" [size]="18" /></button>
+                    <button appButton type="button" variant="ghost" (click)="reset()">Reset</button>
+                  </div>
+                </form>
+              }
+              @case ('mpv') {
+                <form class="form" [formGroup]="mpvForm" (ngSubmit)="calculateMpv()" novalidate>
+                  <div class="form__row">
+                    <div class="field">
+                      <label for="m-resin">Resin quantity (litres) <span class="req">*</span></label>
+                      <input id="m-resin" type="number" inputmode="decimal" min="0" step="any" formControlName="resin" placeholder="e.g. 100" [attr.aria-invalid]="invalid(mpvForm.controls.resin)" />
+                      @if (invalid(mpvForm.controls.resin)) { <p class="error">Enter a number greater than 0.</p> }
+                    </div>
+                    <div class="field">
+                      <label for="m-hard">Water hardness (PPM) <span class="req">*</span></label>
+                      <input id="m-hard" type="number" inputmode="decimal" min="0" step="any" formControlName="hardness" placeholder="e.g. 500" [attr.aria-invalid]="invalid(mpvForm.controls.hardness)" />
+                      @if (invalid(mpvForm.controls.hardness)) { <p class="error">Enter a number greater than 0.</p> }
+                    </div>
+                  </div>
+                  <div class="form__row">
+                    <div class="field">
+                      <label for="m-days">Max regeneration days <span class="req">*</span></label>
+                      <input id="m-days" type="number" inputmode="decimal" min="0" step="any" formControlName="regenDays" placeholder="e.g. 7" [attr.aria-invalid]="invalid(mpvForm.controls.regenDays)" />
+                      @if (invalid(mpvForm.controls.regenDays)) { <p class="error">Enter a number greater than 0.</p> }
+                    </div>
+                    <div class="field">
+                      <label for="m-unit">Unit of water</label>
+                      <select id="m-unit" formControlName="unit">
+                        <option value="M³">M³</option>
+                        <option value="Gallons">Gallons</option>
+                        <option value="Litres">Litres</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="form__row">
+                    <div class="field">
+                      <label for="m-ctl">Control mode</label>
+                      <select id="m-ctl" formControlName="control">
+                        <option value="Meter Delayed">Meter Delayed</option>
+                        <option value="Meter Immediate">Meter Immediate</option>
+                      </select>
+                    </div>
+                    <div class="field">
+                      <label for="m-sig">Signal output mode</label>
+                      <select id="m-sig" formControlName="signal">
+                        <option value="Regeneration Only">Regeneration Only</option>
+                        <option value="Interval Only">Interval Only</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="calc__actions">
+                    <button appButton type="submit" size="lg">Calculate <app-icon name="arrow-right" [size]="18" /></button>
+                    <button appButton type="button" variant="ghost" (click)="reset()">Reset</button>
+                  </div>
+                </form>
+              }
+            }
+          </div>
+
+          <div class="calc__results" aria-live="polite">
+            @switch (t.id) {
+              @case ('chemistry') {
+                @if (chemistry(); as r) {
+                  <dl class="res">
+                    <div class="res__tile res__tile--wide"><dt>Output between regeneration</dt><dd>{{ r.outputBetweenRegen }}</dd></div>
+                    <div class="res__tile"><dt>Salt required per regeneration</dt><dd>{{ r.saltPerRegen }}</dd></div>
+                    <div class="res__tile"><dt>Water required for brine</dt><dd>{{ r.brineWater }}</dd></div>
+                  </dl>
+                } @else { <ng-container *ngTemplateOutlet="empty" /> }
+              }
+              @case ('size') {
+                @if (size(); as r) {
+                  <dl class="res">
+                    <div class="res__tile res__tile--wide"><dt>Required resin quantity</dt><dd>{{ r.resinQuantity }}</dd></div>
+                  </dl>
+                  <p class="note">
+                    As per industry experience, regenerating about every <strong>{{ r.regenDays }} days</strong> keeps the resin in its best health and limits the water used in regeneration.
+                    Regenerating too often wears the resin and leads to early replacement or top-up of the bed, so avoid choosing a softener with very little resin — it forces frequent regeneration cycles.
+                  </p>
+                } @else { <ng-container *ngTemplateOutlet="empty" /> }
+              }
+              @case ('mpv') {
+                @if (mpv(); as r) {
+                  <dl class="res">
+                    <div class="res__tile"><dt>Backwash</dt><dd>{{ r.backwash }}</dd></div>
+                    <div class="res__tile"><dt>Brine draw</dt><dd>{{ r.brineDraw }}</dd></div>
+                    <div class="res__tile"><dt>Brine refill &amp; slow wash</dt><dd>{{ r.brineRefill }}</dd></div>
+                    <div class="res__tile"><dt>Fast rinse</dt><dd>{{ r.fastRinse }}</dd></div>
+                    <div class="res__tile res__tile--wide"><dt>OBR (output between regenerations)</dt><dd>{{ r.obr }}</dd></div>
+                    <div class="res__tile"><dt>Regen days</dt><dd>{{ r.regenDays }}</dd></div>
+                    <div class="res__tile"><dt>Unit of water</dt><dd>{{ r.unitCode }}</dd></div>
+                    <div class="res__tile"><dt>Control mode</dt><dd>{{ r.controlCode }}</dd></div>
+                    <div class="res__tile"><dt>Signal output</dt><dd>{{ r.signalCode }}</dd></div>
+                  </dl>
+                  <p class="note">
+                    These settings are based on on-ground field experience. Actual values can change with the multiport valve brand and size, inlet water pressure, resin bed quality, installation quality, water turbidity and other factors.
+                    Evergreen Aqua cannot guarantee results or accept responsibility for damage arising from these settings, because we cannot verify the quality of the components in your softener.
+                    Please confirm with your service provider or <a routerLink="/contact">contact us</a> before changing any setting on your softener.
+                  </p>
+                } @else { <ng-container *ngTemplateOutlet="empty" /> }
+              }
+            }
+          </div>
+        </div>
+      }
+    }
+
+    <ng-template #empty>
+      <div class="res__empty">
+        <span class="res__drop" aria-hidden="true"><app-icon name="drop" [size]="34" /></span>
+        <p>Fill in the values and press <strong>Calculate</strong> — your results appear here.</p>
+      </div>
+    </ng-template>
+  </div>
+</section>

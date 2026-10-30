@@ -1,0 +1,76 @@
+<header class="site-header" [class.is-scrolled]="scrolled()">
+  <div class="container bar">
+    <a class="brand" routerLink="/" aria-label="Evergreen Aqua – home">
+      <span class="brand__mark" aria-hidden="true">
+        <svg viewBox="0 0 32 32" width="32" height="32"><path d="M16 3s-9 9.7-9 16.3a9 9 0 0 0 18 0C25 12.7 16 3 16 3z" fill="currentColor"/><path d="M12 20.5a4 4 0 0 0 4 3.5" stroke="var(--color-on-primary)" stroke-width="2" fill="none" stroke-linecap="round"/></svg>
+      </span>
+      <span class="brand__text">
+        <span class="brand__name">Evergreen Aqua</span>
+        <span class="brand__tag">Water Solutions</span>
+      </span>
+    </a>
+
+    <nav id="main-nav" class="nav" [class.is-open]="menuOpen()" aria-label="Main">
+      <ul class="nav__list">
+        @for (item of nav; track item.label) {
+          @if (isGroup(item)) {
+            <li class="nav__item has-sub" [class.is-open]="openGroup() === item.label">
+              <button
+                type="button"
+                class="nav__link nav__toggle"
+                [attr.data-group]="item.label"
+                [attr.aria-expanded]="openGroup() === item.label"
+                [attr.aria-controls]="groupId(item)"
+                (click)="toggleGroup(item)"
+              >
+                {{ item.label }} <app-icon name="chevron-down" [size]="16" />
+              </button>
+              <ul class="sub" [id]="groupId(item)">
+                @for (child of item.children; track child.path) {
+                  <li>
+                    <a
+                      [routerLink]="child.path"
+                      routerLinkActive="is-active"
+                      ariaCurrentWhenActive="page"
+                      [routerLinkActiveOptions]="{ exact: !!child.exact }"
+                      >{{ child.label }}</a
+                    >
+                  </li>
+                }
+              </ul>
+            </li>
+          } @else {
+            <li class="nav__item">
+              <a
+                class="nav__link"
+                [routerLink]="item.path"
+                routerLinkActive="is-active"
+                ariaCurrentWhenActive="page"
+                [routerLinkActiveOptions]="{ exact: !!item.exact }"
+                >{{ item.label }}</a
+              >
+            </li>
+          }
+        }
+      </ul>
+      <div class="nav__mobile-cta">
+        <a appButton block [href]="'tel:' + site.phones[0].e164"><app-icon name="phone" [size]="18" /> Call {{ site.phones[0].display }}</a>
+        <a appButton block variant="outline" routerLink="/contact">Book a free water test</a>
+      </div>
+    </nav>
+
+    <div class="actions">
+      <app-theme-switcher />
+      <a appButton size="sm" class="quote" routerLink="/contact">Get a quote</a>
+      <button
+        type="button"
+        class="btn btn--ghost btn--icon menu-toggle"
+        aria-controls="main-nav"
+        [attr.aria-expanded]="menuOpen()"
+        (click)="toggleMenu()"
+      >
+        <app-icon [name]="menuOpen() ? 'close' : 'menu'" [size]="24" [label]="menuOpen() ? 'Close menu' : 'Open menu'" />
+      </button>
+    </div>
+  </div>
+</header>

@@ -1,0 +1,98 @@
+<div class="live" aria-live="polite">
+  @if (status() === 'success') {
+    <div class="alert alert--success" role="status">
+      <app-icon name="check" [size]="20" />
+      <div>
+        <p><strong>Thank you — your message has been sent.</strong></p>
+        <p>We usually reply within one working day ({{ site.hours.label }}).</p>
+        <button type="button" class="link-btn" (click)="reset()">Send another message</button>
+      </div>
+    </div>
+  }
+</div>
+
+@if (status() !== 'success') {
+  <form class="form" [formGroup]="form" (ngSubmit)="submit()" novalidate [attr.aria-busy]="status() === 'submitting'">
+    @if (status() === 'error') {
+      <div class="alert alert--error" role="alert">
+        <app-icon name="alert" [size]="20" />
+        <div>
+          <p>{{ errorMessage() }}</p>
+          <p><a [href]="wa" target="_blank" rel="noopener">Message us on WhatsApp</a> or call <a [href]="'tel:' + site.phones[0].e164">{{ site.phones[0].display }}</a>.</p>
+        </div>
+      </div>
+    }
+
+    <div class="form__row">
+      <div class="field">
+        <label [for]="id('name')">Full name <span class="req" aria-hidden="true">*</span></label>
+        <input [id]="id('name')" type="text" formControlName="name" autocomplete="name" required
+          [attr.aria-invalid]="showError('name')" [attr.aria-describedby]="showError('name') ? id('name-err') : null" />
+        @if (showError('name')) {
+          <p class="error" [id]="id('name-err')"><app-icon name="alert" [size]="14" />{{ errorFor('name') }}</p>
+        }
+      </div>
+      <div class="field">
+        <label [for]="id('phone')">Phone <span class="req" aria-hidden="true">*</span></label>
+        <input [id]="id('phone')" type="tel" formControlName="phone" autocomplete="tel" inputmode="tel" required
+          [attr.aria-invalid]="showError('phone')" [attr.aria-describedby]="showError('phone') ? id('phone-err') : null" />
+        @if (showError('phone')) {
+          <p class="error" [id]="id('phone-err')"><app-icon name="alert" [size]="14" />{{ errorFor('phone') }}</p>
+        }
+      </div>
+    </div>
+
+    <div class="field">
+      <label [for]="id('email')">Email <span class="req" aria-hidden="true">*</span></label>
+      <input [id]="id('email')" type="email" formControlName="email" autocomplete="email" required
+        [attr.aria-invalid]="showError('email')" [attr.aria-describedby]="showError('email') ? id('email-err') : null" />
+      @if (showError('email')) {
+        <p class="error" [id]="id('email-err')"><app-icon name="alert" [size]="14" />{{ errorFor('email') }}</p>
+      }
+    </div>
+
+    @if (positions().length) {
+      <div class="field">
+        <label [for]="id('position')">Position <span class="req" aria-hidden="true">*</span></label>
+        <select [id]="id('position')" formControlName="position" required
+          [attr.aria-invalid]="showError('position')" [attr.aria-describedby]="showError('position') ? id('position-err') : null">
+          <option value="">Select a position</option>
+          @for (p of positions(); track p) {
+            <option [value]="p">{{ p }}</option>
+          }
+        </select>
+        @if (showError('position')) {
+          <p class="error" [id]="id('position-err')"><app-icon name="alert" [size]="14" />{{ errorFor('position') }}</p>
+        }
+      </div>
+    }
+
+    <div class="field">
+      <label [for]="id('message')">Message <span class="req" aria-hidden="true">*</span></label>
+      <textarea [id]="id('message')" formControlName="message" rows="5" required
+        [attr.aria-invalid]="showError('message')"
+        [attr.aria-describedby]="(showError('message') ? id('message-err') + ' ' : '') + id('message-hint')"></textarea>
+      <p class="hint" [id]="id('message-hint')">Tell us about your water source (borewell, sump, Metro water) and any problems you see.</p>
+      @if (showError('message')) {
+        <p class="error" [id]="id('message-err')"><app-icon name="alert" [size]="14" />{{ errorFor('message') }}</p>
+      }
+    </div>
+
+    <div class="hp" aria-hidden="true">
+      <label [for]="id('website')">Leave this field empty</label>
+      <input [id]="id('website')" type="text" formControlName="website" tabindex="-1" autocomplete="off" />
+    </div>
+
+    <p class="hint">Fields marked <span class="req" aria-hidden="true">*</span><span class="visually-hidden">with an asterisk</span> are required.</p>
+
+    <div>
+      <button appButton type="submit" size="lg" [loading]="status() === 'submitting'">
+        @if (status() === 'submitting') {
+          <span class="spinner" aria-hidden="true"></span> Sending…
+        } @else {
+          {{ submitLabel() }} <app-icon name="arrow-right" [size]="18" />
+        }
+      </button>
+    </div>
+  </form>
+}

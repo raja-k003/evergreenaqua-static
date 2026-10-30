@@ -1,0 +1,247 @@
+<section class="hero" aria-labelledby="hero-title" (pointermove)="track($event)">
+  <div class="water" aria-hidden="true">
+    <svg class="wave wv1" viewBox="0 0 2400 200" preserveAspectRatio="none"><path d="M0 110 Q300 30 600 110 T1200 110 T1800 110 T2400 110 V200 H0Z"/></svg>
+    <svg class="wave wv2" viewBox="0 0 2400 200" preserveAspectRatio="none"><path d="M0 100 Q300 170 600 100 T1200 100 T1800 100 T2400 100 V200 H0Z"/></svg>
+    <span class="splash"><i></i><i></i><i></i></span>
+    <svg class="wave wv3" viewBox="0 0 2400 200" preserveAspectRatio="none"><path d="M0 120 Q300 60 600 120 T1200 120 T1800 120 T2400 120 V200 H0Z"/></svg>
+    @for (b of bubbles; track $index) {
+      <i class="wb" [style.left.%]="b.x" [style.bottom.%]="b.y" [style.width.rem]="b.size" [style.animation-delay.s]="b.delay" [style.animation-duration.s]="b.dur"></i>
+    }
+  </div>
+  <div class="container hero__grid">
+    <div class="hero__copy">
+      <p class="eyebrow">{{ site.yearsOfExperience }} years of water expertise in Chennai</p>
+      <h1 id="hero-title">Soft, clean water for every tap in your home</h1>
+      <p class="lead">
+        Welcome to Evergreen Aqua Water Solutions, with {{ site.yearsOfExperience }} years of experience where water quality meets excellence. Indulge in the luxury of softer hair and skin with our advanced WATER SOFTENERS. Enhance purity through our SAND, IRON, and CARBON FILTERS. Experience the Evergreen Aqua difference, offering not just water solutions but a lifestyle upgrade. Enjoy potential yearly savings of up to 20% on water heating costs. Elevate your water experience with Evergreen Aqua – redefining purity, health, and savings.
+      </p>
+      <div class="btn-row">
+        <a appButton size="lg" routerLink="/contact">Book a free water test <app-icon name="arrow-right" [size]="18" /></a>
+        <a appButton size="lg" variant="outline" routerLink="/calculator">Calculate water softening chemistry</a>
+      </div>
+      <ul class="trust">
+        @for (t of trust; track t.label) {
+          <li><app-icon [name]="t.icon" [size]="18" /> {{ t.label }}</li>
+        }
+      </ul>
+      <p class="hint">*Manual softeners and filters.</p>
+    </div>
+    <div class="hero__media">
+      <div class="shapes" aria-hidden="true">
+        @for (s of shapes; track $index) {
+          <span class="shape" [class]="'shape ' + s.kind" [style.--d]="s.d" [style.left.%]="s.x" [style.top.%]="s.y" [style.width.rem]="s.size" [style.height.rem]="s.size" [style.animation-delay.s]="s.delay" [style.animation-duration.s]="s.dur"></span>
+        }
+      </div>
+      <span class="halo"></span><span class="halo-ring"></span>
+      <div class="badge-float"><strong>{{ site.yearsOfExperience }}+</strong><span>years of water expertise</span></div>
+      <div class="machines">
+        @for (m of machines; track m.src) {
+          <figure class="machine" [class]="'machine ' + m.cls">
+            <img [ngSrc]="m.src" [alt]="m.alt" [width]="m.w" [height]="m.h" priority sizes="(min-width: 900px) 12vw, 28vw" />
+            <span class="pool" aria-hidden="true"></span>
+          </figure>
+        }
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section products-sec" aria-labelledby="products-title">
+  <div class="container">
+    <app-section-heading
+      headingId="products-title"
+      eyebrow="Our products"
+      title="Treatment for every water problem"
+      lead="Hard water, muddy borewell water, iron stains or bad odour — each has a dedicated solution."
+    />
+    <ul class="grid card-list products-grid">
+      @for (p of products; track p.slug) {
+        <li>
+          <app-product-card [name]="p.name" [summary]="p.summary" [link]="'/products/' + p.slug" [image]="p.image" [fromPrice]="p.fromPrice" [highlightsTitle]="p.highlightsTitle" [highlights]="p.highlights" />
+        </li>
+      }
+      <li>
+        <app-product-card
+          name="RO water purifiers"
+          summary="RO + UV purifiers with alkaline and copper stages for safe drinking water, from Kent, Aqua and more."
+          link="/products/ro-water-purifiers"
+          [image]="roImage"
+          [fromPrice]="9990"
+          highlightsTitle="Why choose our RO purifiers"
+          [highlights]="roHighlights"
+        />
+      </li>
+    </ul>
+  </div>
+</section>
+
+<section class="section section--alt services-sec" aria-labelledby="benefits-title">
+  <div class="container">
+    <header class="svc-head">
+      <div>
+        <p class="svc-eyebrow">Excellence tailored for you</p>
+        <h2 id="benefits-title">Our best services that we offer to you!</h2>
+      </div>
+      <p class="lead">Elevate your lifestyle with our water solutions. From softeners to filters, we ensure a seamless flow of pure, revitalising water. Experience the essence of hydration with us.</p>
+    </header>
+    <ul class="svc-grid card-list">
+      @for (b of benefits; track b.title) {
+        <li class="svc">
+          <span class="svc__icon"><app-icon [name]="b.icon" [size]="32" /></span>
+          <h3 class="svc__title">{{ b.title }}</h3>
+          <p class="svc__text">{{ b.text }}</p>
+          <a class="svc__plus" [routerLink]="b.link"><app-icon name="plus" [size]="18" [label]="'Learn more about ' + b.title" /></a>
+        </li>
+      }
+      <li class="svc svc--cta">
+        <p>We provide the best services, unmatched and exceptional.</p>
+        <a appButton variant="light" routerLink="/services">Read more</a>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<section class="section sb" aria-labelledby="sb-title">
+  <div class="sb__fx" aria-hidden="true"><span class="sb__blob sb__blob--1"></span><span class="sb__blob sb__blob--2"></span></div>
+  <div class="container">
+    <header class="sb__head">
+      <h2 id="sb-title">Water softener benefits</h2>
+      <p>Discover the advantages: skin wellness, extended appliance life, and a sparkling home. Experience excellence with us.</p>
+    </header>
+    <ul class="sb__grid card-list">
+      @for (b of softenerBenefits; track b.title; let i = $index) {
+        <li class="sbc" [style.--i]="i" [style.--hue]="b.hue">
+          <div class="sbc__media">
+            @if (b.photo) {
+              <img [src]="b.photo" [alt]="b.title" loading="lazy" />
+            } @else {
+              <span class="sbc__scene" aria-hidden="true">
+                <i class="sbc__b sbc__b--1"></i><i class="sbc__b sbc__b--2"></i><i class="sbc__b sbc__b--3"></i>
+                <span class="sbc__icon"><app-icon [name]="b.icon" [size]="38" /></span>
+              </span>
+            }
+            <span class="sbc__num" aria-hidden="true">0{{ i + 1 }}</span>
+          </div>
+          <div class="sbc__body">
+            <h3>{{ b.title }}</h3>
+            <p>{{ b.text }}</p>
+          </div>
+        </li>
+      }
+    </ul>
+  </div>
+</section>
+
+<section class="section proc" aria-labelledby="process-title">
+  <div class="proc__fx" aria-hidden="true"><span class="proc__glow"></span></div>
+  <div class="container">
+    <header class="proc__head">
+      <p class="proc__eyebrow">How we work</p>
+      <h2 id="process-title">Four simple steps to better water</h2>
+    </header>
+    <ol class="proc__list">
+      @for (s of steps; track s.title; let i = $index) {
+        <li class="pstep" [style.--i]="i">
+          <div class="pstep__badge">
+            <svg class="pstep__ring" viewBox="0 0 120 120" aria-hidden="true"><circle cx="60" cy="60" r="56" /></svg>
+            <span class="pstep__disc"><app-icon [name]="s.icon" [size]="40" /></span>
+            <span class="pstep__num">{{ i + 1 }}</span>
+          </div>
+          <h3>{{ s.title }}</h3>
+          <p>{{ s.text }}</p>
+        </li>
+      }
+    </ol>
+  </div>
+</section>
+
+<section class="section activity" aria-labelledby="activity-title">
+  <div class="container">
+    <header class="act__head">
+      <p class="svc-eyebrow">Portfolio list</p>
+      <h2 id="activity-title">Recent completed activity</h2>
+    </header>
+    <ul class="act__grid card-list">
+      @for (g of activity; track g.image.src; let i = $index) {
+        <li [style.--i]="i">
+          <button type="button" class="act__item" (click)="openLightbox(i)" [attr.aria-label]="'View larger: ' + g.caption">
+            <img [ngSrc]="g.image.src" [alt]="g.image.alt" fill sizes="(min-width: 900px) 28vw, (min-width: 600px) 45vw, 92vw" />
+            <span class="act__overlay"><app-icon name="plus" [size]="22" /><span>{{ g.caption }}</span></span>
+          </button>
+        </li>
+      }
+    </ul>
+    <p class="more-link"><a routerLink="/gallery">See the full gallery <app-icon name="arrow-right" [size]="16" /></a></p>
+  </div>
+</section>
+
+@if (lightbox() !== null) {
+  <div class="lb" role="dialog" aria-modal="true" aria-label="Project photo viewer" (click)="closeLightbox()">
+    <button type="button" class="lb__btn lb__close" (click)="closeLightbox()" aria-label="Close"><app-icon name="close" [size]="24" /></button>
+    <button type="button" class="lb__btn lb__prev" (click)="step(-1); $event.stopPropagation()" aria-label="Previous photo"><app-icon name="chevron-right" [size]="28" /></button>
+    <figure class="lb__fig" (click)="$event.stopPropagation()">
+      <img [src]="current()!.image.src" [alt]="current()!.image.alt" />
+      <figcaption>{{ current()!.caption }} <span>{{ lightbox()! + 1 }} / {{ activity.length }}</span></figcaption>
+    </figure>
+    <button type="button" class="lb__btn lb__next" (click)="step(1); $event.stopPropagation()" aria-label="Next photo"><app-icon name="chevron-right" [size]="28" /></button>
+  </div>
+}
+
+<section class="section section--alt reviews-sec" aria-labelledby="reviews-title">
+  <div class="container">
+    <app-section-heading headingId="reviews-title" eyebrow="Testimonials" title="Appreciated by our customers" />
+    @defer (on viewport; hydrate on viewport) {
+      <ul class="grid card-list reviews-grid">
+        @for (t of testimonials; track t.name) {
+          <li><app-testimonial-card [item]="t" /></li>
+        }
+      </ul>
+    } @placeholder {
+      <div class="placeholder" aria-hidden="true"></div>
+    }
+    <p class="more-link"><a routerLink="/testimonials">Read all customer stories <app-icon name="arrow-right" [size]="16" /></a></p>
+  </div>
+</section>
+
+<section class="section" aria-labelledby="blog-title">
+  <div class="container">
+    <app-section-heading headingId="blog-title" eyebrow="From the blog" title="Guides to better water at home" />
+    @defer (on viewport; hydrate on viewport) {
+      <ul class="grid card-list">
+        @for (post of posts; track post.slug) {
+          <li><app-blog-card [post]="post" /></li>
+        }
+      </ul>
+    } @placeholder {
+      <div class="placeholder" aria-hidden="true"></div>
+    }
+    <p class="more-link"><a routerLink="/blog">See all articles <app-icon name="arrow-right" [size]="16" /></a></p>
+  </div>
+</section>
+
+<section class="section partners" aria-labelledby="partners-title">
+  <div class="container partners__grid">
+    <ul class="iso card-list" aria-label="Certifications">
+      @for (c of certs; track c; let i = $index) {
+        <li class="iso__tile" [style.--i]="i">
+          <svg class="iso__globe" viewBox="0 0 64 64" aria-hidden="true">
+            <g fill="none" stroke="currentColor" stroke-width="1">
+              <circle cx="32" cy="22" r="17" /><ellipse cx="32" cy="22" rx="8" ry="17" /><ellipse cx="32" cy="22" rx="14" ry="17" />
+              <path d="M15 22h34M18 14h28M18 30h28M32 5v34" />
+            </g>
+            <text x="32" y="36" text-anchor="middle" class="iso__mark">ISO</text>
+          </svg>
+          <span class="iso__no">{{ c }}</span>
+        </li>
+      }
+    </ul>
+    <div class="partners__copy">
+      <p class="svc-eyebrow">Partners &amp; clients</p>
+      <h2 id="partners-title">Check out our sponsors &amp; partners</h2>
+      <p class="lead">Explore our sponsors and partners, essential collaborators in our journey. Together, we achieve greatness and make remarkable strides in innovation and success.</p>
+      <a appButton routerLink="/about">Learn more</a>
+    </div>
+  </div>
+</section>
+
+<app-cta-band />

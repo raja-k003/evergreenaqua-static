@@ -1,0 +1,80 @@
+<section class="sv-hero" aria-labelledby="sv-title">
+  <div class="sv-hero__fx" aria-hidden="true">
+    <span class="sv-blob sv-blob--1"></span><span class="sv-blob sv-blob--2"></span>
+    <i class="sv-drop sv-drop--1"></i><i class="sv-drop sv-drop--2"></i><i class="sv-drop sv-drop--3"></i>
+    <svg class="sv-wave" viewBox="0 0 2400 120" preserveAspectRatio="none"><path d="M0 60 Q300 0 600 60 T1200 60 T1800 60 T2400 60 V120 H0Z" /></svg>
+  </div>
+  <div class="container">
+    <app-breadcrumbs [items]="breadcrumbs" />
+    <p class="sv-eyebrow">Services</p>
+    <h1 id="sv-title">Water treatment installation and service in Chennai</h1>
+    <p class="lead">From the first water test to years of support, we look after the whole job.</p>
+    <div class="btn-row">
+      <a appButton size="lg" routerLink="/contact">Book a free water test <app-icon name="arrow-right" [size]="18" /></a>
+      <a appButton size="lg" variant="outline" [href]="'tel:' + site.phones[0].e164"><app-icon name="phone" [size]="18" /> {{ site.phones[0].display }}</a>
+    </div>
+  </div>
+</section>
+
+<section class="section sv-what" aria-labelledby="what-title">
+  <div class="container">
+    <header class="sv-head">
+      <p class="sv-eyebrow">What we do</p>
+      <h2 id="what-title">Everything your water system needs</h2>
+    </header>
+    <ul class="sv-grid card-list">
+      @for (s of services; track s.title; let i = $index) {
+        <li class="svc" [style.--i]="i">
+          <span class="svc__no" aria-hidden="true">0{{ i + 1 }}</span>
+          <span class="svc__icon"><app-icon [name]="s.icon" [size]="30" /></span>
+          <h3>{{ s.title }}</h3>
+          <p>{{ s.text }}</p>
+        </li>
+      }
+    </ul>
+  </div>
+</section>
+
+<section class="section sv-get" aria-labelledby="get-title">
+  <div class="container sv-get__grid">
+    <div>
+      <p class="sv-eyebrow">The difference</p>
+      <h2 id="get-title">What you get with soft, filtered water</h2>
+      <ul class="sv-list">
+        @for (h of highlights; track h; let i = $index) {
+          <li [style.--i]="i"><span class="sv-list__tick" aria-hidden="true"><app-icon name="check" [size]="14" /></span>{{ h }}</li>
+        }
+      </ul>
+      <p class="muted">Not sure what you need? Start with our <a routerLink="/products">product overview</a> or read <a routerLink="/blog/choosing-the-right-water-softener">how to choose a water softener</a>.</p>
+    </div>
+    <div class="sv-get__media">
+      <div class="sv-photo"><img [ngSrc]="img.src" [alt]="img.alt" fill priority sizes="(min-width: 900px) 40vw, 100vw" /></div>
+      <div class="sv-badge"><app-icon name="shield" [size]="26" /><span><strong>{{ site.warrantyYears }}-year warranty</strong>Support whenever you need it</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="sv-proc" aria-labelledby="proc-title">
+  <div class="sv-proc__glow" aria-hidden="true"></div>
+  <div class="container">
+    <header class="sv-head sv-head--light">
+      <p class="sv-eyebrow">How it works</p>
+      <h2 id="proc-title">Our four-step process</h2>
+    </header>
+    <ol class="sv-steps">
+      @for (s of steps; track s.title; let i = $index) {
+        <li class="step" [style.--i]="i">
+          <div class="step__badge">
+            <svg class="step__ring" viewBox="0 0 120 120" aria-hidden="true"><circle cx="60" cy="60" r="56" /></svg>
+            <span class="step__disc"><app-icon [name]="s.icon" [size]="38" /></span>
+            <span class="step__num">{{ i + 1 }}</span>
+          </div>
+          <h3>{{ s.title }}</h3>
+          <p>{{ s.text }}</p>
+        </li>
+      }
+    </ol>
+  </div>
+</section>
+
+<app-cta-band title="Ready to book a visit?" text="Tell us about your water and we will arrange a convenient time for a free on-site test." />

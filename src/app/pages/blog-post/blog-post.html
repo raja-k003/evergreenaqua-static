@@ -1,0 +1,98 @@
+<div class="progress" aria-hidden="true"><span [style.transform]="'scaleX(' + progress() + ')'"></span></div>
+
+<article class="post">
+  <header class="ph">
+    <div class="ph__fx" aria-hidden="true">
+      <span class="ph__blob ph__blob--1"></span><span class="ph__blob ph__blob--2"></span>
+      <i class="ph__drop ph__drop--1"></i><i class="ph__drop ph__drop--2"></i>
+    </div>
+    <div class="container">
+      <app-breadcrumbs [items]="breadcrumbs" />
+      <h1>{{ post.title }}</h1>
+      <p class="ph__lead">{{ post.excerpt }}</p>
+      <ul class="ph__meta">
+        <li class="ph__author"><span class="ph__avatar" aria-hidden="true">EA</span> {{ post.author }}</li>
+        <li><app-icon name="calendar" [size]="16" /> <time [attr.datetime]="post.published">{{ post.published | date: 'd MMMM y' : 'UTC' }}</time></li>
+        <li><app-icon name="clock" [size]="16" /> {{ post.readingMinutes }} min read</li>
+      </ul>
+    </div>
+  </header>
+
+  <div class="container wrap">
+    <figure class="cover">
+      <div class="cover__img"><img [ngSrc]="post.image.src" [alt]="post.image.alt" fill priority sizes="(min-width: 1000px) 60rem, 100vw" /></div>
+    </figure>
+
+    <div class="layout">
+      <aside class="side" aria-label="Article navigation">
+        @if (toc.length) {
+          <nav class="toc" aria-labelledby="toc-title">
+            <p id="toc-title" class="side__title">In this article</p>
+            <ol>
+              @for (t of toc; track t.id) {
+                <li><a [href]="'#' + t.id" [class.is-active]="activeId() === t.id" (click)="jump($event, t.id)">{{ t.text }}</a></li>
+              }
+            </ol>
+          </nav>
+        }
+        <div class="share">
+          <p class="side__title">Share</p>
+          <div class="share__row">
+            <a class="share__btn share__btn--wa" [href]="shareWhatsapp()" target="_blank" rel="noopener" aria-label="Share on WhatsApp (opens in a new tab)"><app-icon name="whatsapp" [size]="18" /></a>
+            <a class="share__btn" [href]="shareFacebook()" target="_blank" rel="noopener" aria-label="Share on Facebook (opens in a new tab)"><app-icon name="facebook" [size]="18" /></a>
+            <button type="button" class="share__btn" (click)="copyLink()" [attr.aria-label]="copied() ? 'Link copied' : 'Copy link'"><app-icon [name]="copied() ? 'check' : 'external'" [size]="18" /></button>
+          </div>
+          <p class="share__note" aria-live="polite">{{ copied() ? 'Link copied!' : '' }}</p>
+        </div>
+      </aside>
+
+      <div class="prose">
+        @for (block of body; track $index) {
+          @switch (block.type) {
+            @case ('h2') { <h2 [id]="$any(block).id">{{ block.text }}</h2> }
+            @case ('h3') { <h3>{{ block.text }}</h3> }
+            @case ('ul') {
+              <ul class="ticks">
+                @for (item of $any(block).items; track $index) { <li>{{ item }}</li> }
+              </ul>
+            }
+            @default { <p [class.first]="$index === 0">{{ block.text }}</p> }
+          }
+        }
+
+        @if (product) {
+          <aside class="promo" aria-label="Related product">
+            <span class="promo__icon"><app-icon name="drop" [size]="28" /></span>
+            <div>
+              <h2>Looking for a solution?</h2>
+              <p>See our {{ product.name.toLowerCase() }} range and prices, or talk to us for a free on-site water test.</p>
+            </div>
+            <div class="promo__actions">
+              <a class="promo__btn" [routerLink]="['/products', product.slug]">View {{ product.name.toLowerCase() }}s <app-icon name="arrow-right" [size]="16" /></a>
+              <a class="promo__btn promo__btn--ghost" [href]="enquiry()" target="_blank" rel="noopener">Ask on WhatsApp <span class="visually-hidden">(opens in a new tab)</span></a>
+            </div>
+          </aside>
+        }
+
+        <div class="author">
+          <span class="author__avatar" aria-hidden="true">EA</span>
+          <div><p class="author__name">Written by {{ post.author }}</p><p class="author__bio">{{ site.yearsOfExperience }} years of water treatment experience in Chennai — softeners, sand, iron and carbon filters and RO purifiers.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</article>
+
+@if (more.length) {
+  <section class="section more" aria-labelledby="more-title">
+    <div class="container">
+      <header class="more__head"><p class="eyebrow-line">Keep reading</p><h2 id="more-title">More articles</h2></header>
+      <ul class="grid card-list">
+        @for (p of more; track p.slug) {
+          <li><app-blog-card [post]="p" /></li>
+        }
+      </ul>
+    </div>
+  </section>
+}
+<app-cta-band />

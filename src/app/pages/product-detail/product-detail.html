@@ -1,0 +1,112 @@
+<app-page-header [breadcrumbs]="breadcrumbs" eyebrow="Evergreen Aqua products" [title]="product.h1" [lead]="product.summary" />
+
+<section class="section">
+  <div class="container split">
+    <div class="media media--contain media--square hero-img">
+      <img [ngSrc]="product.image.src" [alt]="product.image.alt" fill priority sizes="(min-width: 900px) 40vw, 90vw" />
+    </div>
+    <div>
+      <h2>About the {{ product.name.toLowerCase() }}</h2>
+      @for (para of product.intro; track $index) {
+        <p>{{ para }}</p>
+      }
+      @if (fromPrice) {
+        <p class="price-line">Models from <span class="price">{{ fromPrice | inr }}</span>&nbsp;<span class="muted">MRP</span></p>
+      }
+      <div class="btn-row">
+        <a appButton routerLink="/contact">Get a free water test</a>
+        <a appButton variant="outline" [href]="wa" target="_blank" rel="noopener"><app-icon name="whatsapp" [size]="18" /> Ask on WhatsApp</a>
+      </div>
+      <p class="brochure"><a [href]="site.brochureUrl" target="_blank" rel="noopener">Download the product brochure <span class="muted">(PDF, 3.8 MB)</span></a></p>
+      <ul class="chips features" aria-label="Key features">
+        @for (f of product.features; track f) {
+          <li class="badge">{{ f }}</li>
+        }
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="section section--alt">
+  <div class="container split">
+    <div>
+      <h2>Benefits</h2>
+      <ul class="check-list">
+        @for (b of product.benefits; track b) {
+          <li>{{ b }}</li>
+        }
+      </ul>
+    </div>
+    @if (product.removes?.length) {
+      <div>
+        <h2>What it removes</h2>
+        <ul class="check-list">
+          @for (r of product.removes; track r) {
+            <li>{{ r }}</li>
+          }
+        </ul>
+      </div>
+    }
+  </div>
+</section>
+
+@if (product.models?.length) {
+  <section class="section" aria-labelledby="models-title">
+    <div class="container">
+      <h2 id="models-title">Models and prices</h2>
+      <p class="muted">Model numbers indicate capacity; we recommend a size after testing your water and estimating daily use.</p>
+      <div class="tables">
+        @for (group of [{ label: 'Automatic models', rows: automatic() }, { label: 'Manual models', rows: manual() }]; track group.label) {
+          @if (group.rows.length) {
+            <div class="table-wrap">
+              <table class="table">
+                <caption>{{ group.label }}</caption>
+                <thead>
+                  <tr><th scope="col">Model</th><th scope="col">Operation</th><th scope="col" class="num">MRP</th></tr>
+                </thead>
+                <tbody>
+                  @for (m of group.rows; track m.model) {
+                    <tr><th scope="row">{{ m.model }}</th><td>{{ m.operation }}</td><td class="num">{{ m.mrp | inr }}</td></tr>
+                  }
+                </tbody>
+              </table>
+            </div>
+          }
+        }
+      </div>
+      <p class="note">Prices are maximum retail prices. Installation charges may apply depending on site conditions.</p>
+    </div>
+  </section>
+}
+
+<section class="section" [class.section--alt]="product.models?.length" aria-labelledby="pfaq-title">
+  <div class="container">
+    <h2 id="pfaq-title">Questions about the {{ product.name.toLowerCase() }}</h2>
+    <div class="accordion">
+      @for (f of product.faqs; track f.q) {
+        <details>
+          <summary>{{ f.q }}</summary>
+          <div class="accordion__body"><p>{{ f.a }}</p></div>
+        </details>
+      }
+    </div>
+    <p class="note"><a routerLink="/faq">See all frequently asked questions</a></p>
+  </div>
+</section>
+
+@if (related.length) {
+  <section class="section" aria-labelledby="related-title">
+    <div class="container">
+      <h2 id="related-title">Often installed together</h2>
+      <ul class="grid card-list">
+        @for (r of related; track r.slug) {
+          <li>
+            <app-product-card [name]="r.name" [summary]="r.summary" [link]="'/products/' + r.slug" [image]="r.image" [fromPrice]="lowestPrice(r)" />
+          </li>
+        }
+      </ul>
+    </div>
+  </section>
+}
+
+<app-cta-band />

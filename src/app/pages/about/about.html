@@ -1,0 +1,81 @@
+<section class="intro" aria-labelledby="about-title">
+  <div class="intro__fx" aria-hidden="true"><span></span><span></span></div>
+  <div class="container">
+    <app-breadcrumbs [items]="breadcrumbs" />
+    <div class="intro__grid">
+      <div class="intro__copy">
+        <p class="eyebrow-line">Introduction of us</p>
+        <h1 id="about-title">Pioneering excellence in water solutions</h1>
+        <p>At {{ site.name }} Water Solutions, our mission is to revolutionise your water experience. With a commitment to excellence, we offer innovative solutions, from advanced <strong>water softeners</strong> for smoother hair and skin to precision-engineered <strong>sand, iron and carbon filters</strong>, along with RO with alkaline water purifiers for unparalleled purity.</p>
+        <p>What sets {{ site.name }} apart is not just our focus on superior water quality, but also our dedication to customer satisfaction. Our team of professionals strives for excellence in every product and service we provide. Join us in redefining purity, health and sustainability. {{ site.name }} Water Solutions — where each drop reflects our passion for transforming your water experience.</p>
+      </div>
+      <div class="intro__media">
+        <div class="intro__photo"><img [ngSrc]="img.src" [alt]="img.alt" fill priority sizes="(min-width: 900px) 40vw, 100vw" /></div>
+        <dl class="stats">
+          @for (s of stats; track s.label; let i = $index) {
+            <div class="stats__item">
+              <dt>{{ s.label }}</dt>
+              <dd>{{ counts()[i] }}{{ s.suffix }}</dd>
+            </div>
+          }
+        </dl>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section vm" aria-labelledby="vm-title">
+  <h2 id="vm-title" class="visually-hidden">Our vision and mission</h2>
+  <div class="container vm__grid">
+    <article class="vm__card vm__card--vision">
+      <h3>Our vision…</h3>
+      <p>At {{ site.name }} Water Solutions, our vision is to lead the industry in redefining water experiences. We see a future where our innovative water softeners, sand filters, iron filters and carbon filters set new standards for purity and sustainability, enriching lives worldwide.</p>
+    </article>
+    <div class="vm__media">
+      <span class="vm__bubble vm__bubble--1"></span><span class="vm__bubble vm__bubble--2"></span><span class="vm__bubble vm__bubble--3"></span>
+      <img src="/images/about-vision-mission-shower-heater.webp" alt="A wall-mounted electric water heater and shower in a white-tiled bathroom" width="480" height="576" loading="lazy" />
+    </div>
+    <article class="vm__card vm__card--mission">
+      <h3>Our mission…</h3>
+      <p>At {{ site.name }} Water Solutions, our mission is to enhance your lifestyle with advanced water treatment. Our innovative products, including water softeners, sand filters, iron filters and carbon filters, offer a {{ site.warrantyYears }}-year warranty, ensuring smoother hair, softer skin and up to 20% yearly savings on water heating.</p>
+    </article>
+  </div>
+</section>
+
+<section class="adv" aria-labelledby="adv-title">
+  <div class="container">
+    <header class="adv__head">
+      <p class="adv__eyebrow">Benefits of using {{ site.name }} softener</p>
+      <h2 id="adv-title">Unlock the advantages of water softeners</h2>
+    </header>
+    <ul class="adv__list">
+      @for (b of benefits; track b.title; let i = $index) {
+        <li [style.--i]="i">
+          <span class="adv__tick" aria-hidden="true"><app-icon name="check" [size]="14" /></span>
+          <div><strong>{{ b.title }}:</strong> <span>{{ b.text }}</span></div>
+        </li>
+      }
+    </ul>
+  </div>
+</section>
+
+<section class="section fm" aria-labelledby="fm-title">
+  <div class="container">
+    <header class="fm__head">
+      <h2 id="fm-title">Filtration mastery unleashed</h2>
+      <p>Experience unparalleled purity with our advanced filters. Elevate your water quality and ensure a refreshingly clear and clean flow. Explore the difference filtration excellence makes.</p>
+    </header>
+    <ul class="fm__grid card-list">
+      @for (f of filters; track f.name; let i = $index) {
+        <li class="fm__card" [style.--i]="i">
+          <div class="fm__media"><img [src]="f.img" [alt]="f.alt" width="900" height="600" loading="lazy" /></div>
+          <h3>{{ f.name }}</h3>
+          <p>{{ f.text }}</p>
+          <a class="fm__btn" [routerLink]="f.link">Read more <app-icon name="arrow-right" [size]="16" /></a>
+        </li>
+      }
+    </ul>
+  </div>
+</section>
+
+<app-cta-band />

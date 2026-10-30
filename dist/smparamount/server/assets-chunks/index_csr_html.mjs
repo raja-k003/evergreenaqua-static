@@ -1,0 +1,29 @@
+export default `<!doctype html>
+<html lang="en-IN" data-theme="ocean" data-beasties-container="">
+<head>
+  <meta charset="utf-8">
+  <title>Water Softeners &amp; Filters in Chennai | Evergreen Aqua</title>
+  <base href="/">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#ffffff">
+  <meta name="format-detection" content="telephone=no">
+  <!-- Apply the saved theme before first paint (no flash). Keep this tiny and inline. -->
+  <script>
+    (function () {
+      try {
+        var d = document.documentElement, t = localStorage.getItem('smp-theme');
+        if (t && /^[a-z-]{2,20}\$/.test(t)) d.setAttribute('data-theme', t);
+        var v = JSON.parse(localStorage.getItem('smp-theme-vars') || 'null');
+        if (v) for (var k in v) if (/^--color-[a-z-]+\$/.test(k) && /^#[0-9a-f]{6}\$/i.test(v[k])) d.style.setProperty(k, v[k]);
+      } catch (e) {}
+    })();
+  </script>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+<style>:root{--font-sans:ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans", "Helvetica Neue", Arial, sans-serif;--font-size-xs:.8125rem;--font-size-sm:.9375rem;--font-size-md:1rem;--font-size-lg:1.125rem;--font-size-xl:clamp(1.25rem, 1.1rem + .6vw, 1.5rem);--font-size-2xl:clamp(1.5rem, 1.2rem + 1.2vw, 2rem);--font-size-3xl:clamp(1.875rem, 1.4rem + 2vw, 2.75rem);--font-size-4xl:clamp(2.125rem, 1.5rem + 2.8vw, 3.5rem);--space-1:.25rem;--space-2:.5rem;--space-3:.75rem;--space-4:1rem;--space-5:1.5rem;--space-6:2rem;--space-7:3rem;--space-8:4rem;--space-section:clamp(3rem, 2rem + 4vw, 5.5rem);--radius-sm:.5rem;--radius-md:.875rem;--radius-lg:1.25rem;--radius-pill:999px;--shadow-sm:0 1px 2px rgb(15 23 42 / .06), 0 1px 3px rgb(15 23 42 / .05);--shadow-md:0 4px 10px rgb(15 23 42 / .06), 0 12px 28px rgb(15 23 42 / .07);--shadow-lg:0 18px 50px rgb(15 23 42 / .12);--header-height:4.25rem;--container:76rem;--transition:.16s ease}*,*:before,*:after{box-sizing:border-box}html{-webkit-text-size-adjust:100%;text-size-adjust:100%;scroll-padding-top:calc(var(--header-height) + 1rem)}body{margin:0;min-height:100vh;font-family:var(--font-sans);font-size:var(--font-size-md);line-height:1.65;color:var(--color-text);background:var(--color-bg);-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}p{margin:0 0 var(--space-4);text-wrap:pretty}@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}}</style><link rel="stylesheet" href="styles-UG5AIRVM.css" media="print" data-beasties-media="all"><noscript><link rel="stylesheet" href="styles-UG5AIRVM.css"></noscript></head>
+<body ngcm="">
+  <app-root></app-root>
+  <noscript><p style="padding:1rem;text-align:center">This site works best with JavaScript enabled, but all content is available without it.</p></noscript>
+<link rel="modulepreload" href="chunk-M3JeS0Wr.js"><script src="main-HDFVIPO6.js" type="module"></script><script>document.querySelectorAll('link[data-beasties-media]').forEach(function(l){l.media=l.getAttribute('data-beasties-media');l.removeAttribute('data-beasties-media')})</script></body>
+</html>
+`;

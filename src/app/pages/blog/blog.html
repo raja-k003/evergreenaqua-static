@@ -1,0 +1,71 @@
+<section class="bl-hero" aria-labelledby="bl-title">
+  <div class="bl-hero__fx" aria-hidden="true">
+    <span class="bl-blob bl-blob--1"></span><span class="bl-blob bl-blob--2"></span>
+    <i class="bl-drop bl-drop--1"></i><i class="bl-drop bl-drop--2"></i>
+    <svg class="bl-wave" viewBox="0 0 2400 120" preserveAspectRatio="none"><path d="M0 60 Q300 0 600 60 T1200 60 T1800 60 T2400 60 V120 H0Z" /></svg>
+  </div>
+  <div class="container">
+    <app-breadcrumbs [items]="breadcrumbs" />
+    <p class="bl-eyebrow">Blog</p>
+    <h1 id="bl-title">Water treatment tips and guides</h1>
+    <p class="lead">Practical advice on hard water, softener care and choosing the right system.</p>
+  </div>
+</section>
+
+<section class="section bl-main">
+  <div class="container">
+    <h2 class="visually-hidden">Articles{{ page() > 1 ? ', page ' + page() : '' }}</h2>
+    @if (invalid()) {
+      <app-state kind="error" title="That page doesn’t exist" message="The blog page you asked for is out of range.">
+        <a class="btn btn--outline" routerLink="/blog">Go to the latest articles</a>
+      </app-state>
+    } @else if (!posts().length) {
+      <app-state title="No articles yet" message="We are writing our first guides. Check back soon." />
+    } @else {
+      @if (featured(); as f) {
+        <article class="feat">
+          <div class="feat__media">
+            <img [ngSrc]="f.image.src" [alt]="f.image.alt" fill priority sizes="(min-width: 900px) 50vw, 100vw" />
+            <span class="feat__tag">Latest article</span>
+          </div>
+          <div class="feat__body">
+            <p class="feat__meta">
+              <span>{{ f.author }}</span>
+              <time [attr.datetime]="f.published">{{ f.published | date: 'd MMM y' : 'UTC' }}</time>
+              <span class="feat__read"><app-icon name="clock" [size]="14" /> {{ f.readingMinutes }} min read</span>
+            </p>
+            <h2 class="feat__title"><a [routerLink]="['/blog', f.slug]">{{ f.title }}</a></h2>
+            <p>{{ f.excerpt }}</p>
+            <a class="feat__btn" [routerLink]="['/blog', f.slug]">Read article <app-icon name="arrow-right" [size]="16" /></a>
+          </div>
+        </article>
+      }
+      @if (rest().length) {
+        <ul class="bl-grid card-list">
+          @for (post of rest(); track post.slug; let i = $index) {
+            <li [style.--i]="i"><app-blog-card [post]="post" /></li>
+          }
+        </ul>
+      }
+      @if (pages() > 1) {
+        <nav aria-label="Blog pages">
+          <ul class="pagination">
+            @if (page() > 1) {
+              <li><a [routerLink]="'/blog'" [queryParams]="qp(page() - 1)" rel="prev">Previous</a></li>
+            }
+            @for (n of pageNumbers(); track n) {
+              <li>
+                <a [routerLink]="'/blog'" [queryParams]="qp(n)" [attr.aria-current]="n === page() ? 'page' : null">
+                  <span class="visually-hidden">Page </span>{{ n }}
+                </a>
+              </li>
+            }
+            @if (page() < pages()) {
+              <li><a [routerLink]="'/blog'" [queryParams]="qp(page() + 1)" rel="next">Next</a></li>
+            }
+          </ul>
+        </nav>
+      }
+    }
+  </div>
+</section>
