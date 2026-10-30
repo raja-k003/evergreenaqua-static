@@ -1,0 +1,23 @@
+{
+  "routes": {
+    "/evergreenaqua-static": {},
+    "/evergreenaqua-static/about": {},
+    "/evergreenaqua-static/blog/choosing-the-right-water-softener": {},
+    "/evergreenaqua-static/blog/signs-of-hard-water": {},
+    "/evergreenaqua-static/blog/water-softener-maintenance-tips": {},
+    "/evergreenaqua-static/calculator": {},
+    "/evergreenaqua-static/careers": {},
+    "/evergreenaqua-static/contact": {},
+    "/evergreenaqua-static/faq": {},
+    "/evergreenaqua-static/gallery": {},
+    "/evergreenaqua-static/how-it-works": {},
+    "/evergreenaqua-static/products/carbon-filters": {},
+    "/evergreenaqua-static/products/iron-filters": {},
+    "/evergreenaqua-static/products/purolite-softener-resin": {},
+    "/evergreenaqua-static/products/ro-water-purifiers": {},
+    "/evergreenaqua-static/products/sand-filters": {},
+    "/evergreenaqua-static/products/water-softeners": {},
+    "/evergreenaqua-static/services": {},
+    "/evergreenaqua-static/testimonials": {}
+  }
+}
