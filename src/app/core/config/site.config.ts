@@ -4,7 +4,7 @@
  * Open Graph URLs, the sitemap and JSON-LD are all derived from it.
  */
 export const SITE = {
-  baseUrl: 'https://smparamount.in',
+  baseUrl: 'https://evergreenaqua.in',
   name: 'Evergreen Aqua',
   shortName: 'Evergreen Aqua',
   legalName: 'Evergreen Aqua',
