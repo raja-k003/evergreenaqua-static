@@ -1,6 +1,6 @@
 
 export default {
-  basePath: "/evergreenaqua-static",
+  basePath: "/",
   allowedHosts: [
   "smparamount.in",
   "www.smparamount.in",

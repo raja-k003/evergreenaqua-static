@@ -3,7 +3,7 @@ export default `<!doctype html>
 <head>
   <meta charset="utf-8">
   <title>Water Softeners &amp; Filters in Chennai | Evergreen Aqua</title>
-  <base href="/evergreenaqua-static/">
+  <base href="/">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#ffffff">
   <meta name="format-detection" content="telephone=no">
