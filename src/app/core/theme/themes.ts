@@ -12,6 +12,15 @@ export interface ThemeTokens {
   border: string;
   success: string;
   danger: string;
+  /** Second brand hue: decorative badges, icon tiles, secondary highlights. Never an action colour. */
+  secondary: string;
+  secondarySoft: string;
+  onSecondary: string;
+  /** Deep neutral (lightly tinted by the theme) for dark bands: footer, CTA, feature sections. */
+  ink: string;
+  /** Status colours, deliberately independent of the selected primary. */
+  info: string;
+  warning: string;
 }
 
 export interface ThemePreset {
@@ -22,7 +31,7 @@ export interface ThemePreset {
   tokens: ThemeTokens;
 }
 
-const status = { success: '#15803d', danger: '#b91c1c' };
+const status = { success: '#15803d', danger: '#b91c1c', info: '#0b6bcb', warning: '#b45309' };
 
 /**
  * The five built-in presets. Every text/background pair here is checked for
@@ -32,11 +41,12 @@ export const THEME_PRESETS: ThemePreset[] = [
   {
     id: 'aqua',
     label: 'Aqua',
-    description: 'Evergreen Aqua brand blue',
+    description: 'Evergreen Aqua Systems brand blue',
     scheme: 'light',
     tokens: {
       primary: '#3857f1', primaryHover: '#2440d4', onPrimary: '#ffffff', primarySoft: '#e9eeff', accent: '#0ea5e9',
       bg: '#f6f8fe', surface: '#ffffff', surfaceAlt: '#eef2fc', text: '#0f172a', textMuted: '#475569', border: '#d9e0f0', ...status,
+      secondary: '#0e7490', secondarySoft: '#e0f2f7', onSecondary: '#ffffff', ink: '#0f1b36',
     },
   },
   {
@@ -47,6 +57,7 @@ export const THEME_PRESETS: ThemePreset[] = [
     tokens: {
       primary: '#0f766e', primaryHover: '#0b5c56', onPrimary: '#ffffff', primarySoft: '#e3f4f1', accent: '#14b8a6',
       bg: '#f4faf9', surface: '#ffffff', surfaceAlt: '#e9f4f2', text: '#0f1f1d', textMuted: '#45605c', border: '#d3e5e2', ...status,
+      secondary: '#0369a1', secondarySoft: '#e1f0f9', onSecondary: '#ffffff', ink: '#0d2422',
     },
   },
   {
@@ -56,7 +67,8 @@ export const THEME_PRESETS: ThemePreset[] = [
     scheme: 'light',
     tokens: {
       primary: '#166534', primaryHover: '#114d28', onPrimary: '#ffffff', primarySoft: '#e6f4ea', accent: '#22c55e',
-      bg: '#f6faf6', surface: '#ffffff', surfaceAlt: '#ecf5ee', text: '#122016', textMuted: '#4a5f50', border: '#d6e6d9', success: '#166534', danger: '#b91c1c',
+      bg: '#f6faf6', surface: '#ffffff', surfaceAlt: '#ecf5ee', text: '#122016', textMuted: '#4a5f50', border: '#d6e6d9', success: '#166534', danger: '#b91c1c', info: '#0b6bcb', warning: '#b45309',
+      secondary: '#8f5206', secondarySoft: '#f8f0d9', onSecondary: '#ffffff', ink: '#0f2217',
     },
   },
   {
@@ -67,6 +79,7 @@ export const THEME_PRESETS: ThemePreset[] = [
     tokens: {
       primary: '#c2410c', primaryHover: '#9a330a', onPrimary: '#ffffff', primarySoft: '#fdeee4', accent: '#f59e0b',
       bg: '#fffaf6', surface: '#ffffff', surfaceAlt: '#fbf0e8', text: '#24150d', textMuted: '#6b5446', border: '#efdccf', ...status,
+      secondary: '#9d174d', secondarySoft: '#fbe7f0', onSecondary: '#ffffff', ink: '#2a1710',
     },
   },
   {
@@ -76,7 +89,8 @@ export const THEME_PRESETS: ThemePreset[] = [
     scheme: 'dark',
     tokens: {
       primary: '#8ea6ff', primaryHover: '#b0c1ff', onPrimary: '#0b1120', primarySoft: '#1d2948', accent: '#38bdf8',
-      bg: '#0b1120', surface: '#121a2f', surfaceAlt: '#18223b', text: '#e6ebf5', textMuted: '#a3afc4', border: '#26324f', success: '#4ade80', danger: '#f87171',
+      bg: '#0b1120', surface: '#121a2f', surfaceAlt: '#18223b', text: '#e6ebf5', textMuted: '#a3afc4', border: '#26324f', success: '#4ade80', danger: '#f87171', info: '#60a5fa', warning: '#fbbf24',
+      secondary: '#c4b5fd', secondarySoft: '#2a2552', onSecondary: '#0b1120', ink: '#050813',
     },
   },
 ];

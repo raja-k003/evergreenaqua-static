@@ -122,7 +122,7 @@ export interface JobOpening {
 export const JOB_OPENINGS: JobOpening[] = [
   { title: 'Customer Service Representative', type: 'Full time', summary: 'Be the first point of contact for customers: answer enquiries, schedule visits and follow up after installation.' },
   { title: 'Technical Support Engineer', type: 'Full time', summary: 'Install, service and troubleshoot water softeners, filters and RO purifiers at customer sites.' },
-  { title: 'Marketing Specialist', type: 'Full time', summary: 'Plan local campaigns, manage social channels and grow awareness of Evergreen Aqua across Chennai.' },
+  { title: 'Marketing Specialist', type: 'Full time', summary: 'Plan local campaigns, manage social channels and grow awareness of Evergreen Aqua Systems across Chennai.' },
   { title: 'Operations Coordinator', type: 'Full time', summary: 'Coordinate stock, scheduling and field teams so every installation runs on time.' },
 ];
 
@@ -132,16 +132,16 @@ export interface GalleryItem {
 }
 
 export const GALLERY: GalleryItem[] = [
-  { image: image('terrace-softener-installation', 'Evergreen Aqua softener vessel and blue pre-filter installed on a terrace'), caption: 'Terrace installation' },
-  { image: image('technician-twin-vessel-installation', 'Evergreen Aqua technician beside a twin-vessel installation'), caption: 'Twin-vessel system, ready to commission' },
-  { image: image('twin-filter-vessels-utility-area', 'Two Evergreen Aqua vessels with control valves in a utility area'), caption: 'Twin vessels in a utility area' },
-  { image: image('sm-paramount-team-installation', 'Evergreen Aqua team beside a newly installed water softener'), caption: 'Our team at a completed installation' },
-  { image: image('softener-with-brine-tank', 'Evergreen Aqua softener vessel beside its blue brine tank'), caption: 'Softener with brine tank' },
+  { image: image('terrace-softener-installation', 'Evergreen Aqua Systems softener vessel and blue pre-filter installed on a terrace'), caption: 'Terrace installation' },
+  { image: image('technician-twin-vessel-installation', 'Evergreen Aqua Systems technician beside a twin-vessel installation'), caption: 'Twin-vessel system, ready to commission' },
+  { image: image('twin-filter-vessels-utility-area', 'Two Evergreen Aqua Systems vessels with control valves in a utility area'), caption: 'Twin vessels in a utility area' },
+  { image: image('sm-paramount-team-installation', 'Evergreen Aqua Systems team beside a newly installed water softener'), caption: 'Our team at a completed installation' },
+  { image: image('softener-with-brine-tank', 'Evergreen Aqua Systems softener vessel beside its blue brine tank'), caption: 'Softener with brine tank' },
   { image: image('sand-filter-and-softener-pair', 'Sand filter and water softener installed side by side'), caption: 'Sand filter and softener pair' },
-  { image: image('twin-vessels-with-pre-filters', 'Two Evergreen Aqua vessels with blue cartridge pre-filters'), caption: 'Vessels with cartridge pre-filters' },
+  { image: image('twin-vessels-with-pre-filters', 'Two Evergreen Aqua Systems vessels with blue cartridge pre-filters'), caption: 'Vessels with cartridge pre-filters' },
   { image: image('indoor-softener-and-filter', 'Softener, filter, pre-filter and brine tank installed indoors'), caption: 'Indoor softener and filter' },
   { image: image('twin-vessels-covered-shed', 'Twin vessels with pipework installed in a covered shed'), caption: 'Installation in a covered shed' },
-  { image: image('cabinet-softener-installation', 'Cabinet-style water softener and blue filter installed by Evergreen Aqua'), caption: 'Cabinet softener installation' },
+  { image: image('cabinet-softener-installation', 'Cabinet-style water softener and blue filter installed by Evergreen Aqua Systems'), caption: 'Cabinet softener installation' },
 ];
 
 export interface GalleryVideo {
@@ -164,4 +164,4 @@ export const GALLERY_VIDEOS: GalleryVideo[] = [
 ];
 
 /** Featured YouTube video (YouTube video ID). */
-export const GALLERY_YOUTUBE = { id: '_R86PlGdNus', title: 'Evergreen Aqua water solutions' };
+export const GALLERY_YOUTUBE = { id: '_R86PlGdNus', title: 'Evergreen Aqua Systems water solutions' };

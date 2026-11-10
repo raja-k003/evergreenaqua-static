@@ -112,7 +112,7 @@ export function productSchema(product: Product): JsonLd | null {
     '@context': 'https://schema.org',
     '@type': 'Product',
     '@id': `${url}#product`,
-    name: `Evergreen Aqua ${product.name}`,
+    name: `Evergreen Aqua Systems ${product.name}`,
     description: product.summary,
     image: [absoluteImageUrl(product.image.src, SITE.baseUrl)],
     brand: { '@type': 'Brand', name: SITE.shortName },

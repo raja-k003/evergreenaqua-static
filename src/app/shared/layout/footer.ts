@@ -20,7 +20,7 @@ import { Icon } from '../ui/icon';
       </div>
       <div class="container cols">
         <section class="about" aria-labelledby="footer-brand">
-          <p id="footer-brand" class="brand">Evergreen Aqua</p>
+          <p id="footer-brand" class="brand">Evergreen Aqua Systems</p>
           <p class="muted">Water softeners, sand, iron and carbon filters and RO purifiers for Chennai homes and businesses — {{ site.yearsOfExperience }} years of experience.</p>
           <p class="social-title">Follow &amp; connect</p>
           <ul class="social">
@@ -88,9 +88,9 @@ import { Icon } from '../ui/icon';
   `,
   styles: `
     .site-footer {
-      --f-deep: color-mix(in srgb, var(--color-primary) 38%, #020617);
-      --f-mid: color-mix(in srgb, var(--color-primary) 62%, #020617);
-      --f-glow: var(--color-accent, var(--color-primary));
+      --f-deep: var(--color-ink);
+      --f-mid: var(--color-ink-mid);
+      --f-glow: var(--color-secondary);
       --f-text: #eef4ff; --f-muted: color-mix(in srgb, #eef4ff 68%, var(--f-deep)); --f-accent: color-mix(in srgb, var(--f-glow) 55%, #fff); --f-line: rgb(255 255 255 / .16);
       --mx: 50%; --my: 60%;
       position: relative; isolation: isolate; overflow: hidden; margin-top: auto; font-size: var(--font-size-sm);
@@ -189,8 +189,8 @@ export class Footer {
   ];
   /** Social profiles from the site config, plus direct WhatsApp chat. Add more entries to SITE.social (linkedin / twitter icons are available). */
   protected readonly socials = [
-    ...SITE.social.map((s) => ({ key: s.icon, name: s.name, url: s.url, icon: s.icon, external: true, label: `Evergreen Aqua on ${s.name} (opens in a new tab)` })),
-    { key: 'whatsapp', name: 'WhatsApp', url: whatsappLink(), icon: 'whatsapp', external: true, label: 'Chat with Evergreen Aqua on WhatsApp (opens in a new tab)' },
+    ...SITE.social.map((s) => ({ key: s.icon, name: s.name, url: s.url, icon: s.icon, external: true, label: `Evergreen Aqua Systems on ${s.name} (opens in a new tab)` })),
+    { key: 'whatsapp', name: 'WhatsApp', url: whatsappLink(), icon: 'whatsapp', external: true, label: 'Chat with Evergreen Aqua Systems on WhatsApp (opens in a new tab)' },
   ];
   protected readonly address = fullAddress();
   protected readonly wa = whatsappLink();

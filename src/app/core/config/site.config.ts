@@ -5,12 +5,12 @@
  */
 export const SITE = {
   baseUrl: 'https://evergreenaqua.in',
-  name: 'Evergreen Aqua',
-  shortName: 'Evergreen Aqua',
-  legalName: 'Evergreen Aqua',
+  name: 'Evergreen Aqua Systems',
+  shortName: 'Evergreen Aqua Systems',
+  legalName: 'Evergreen Aqua Systems',
   tagline: 'Water softeners, sand, iron and carbon filters in Chennai',
-  titleTemplate: '%s | Evergreen Aqua',
-  defaultTitle: 'Water Softeners & Filters in Chennai | Evergreen Aqua',
+  titleTemplate: '%s | Evergreen Aqua Systems',
+  defaultTitle: 'Water Softeners & Filters in Chennai | Evergreen Aqua Systems',
   defaultDescription:
     'Water softeners, sand, iron and carbon filters and RO purifiers for Chennai homes and businesses. 25 years of experience and a 1-year warranty.',
   lang: 'en-IN',
@@ -18,14 +18,14 @@ export const SITE = {
   yearsOfExperience: 25,
   warrantyYears: 1,
   logo: {
-    url: '/images/sm-paramount-logo.png',
-    width: 600,
-    height: 325,
+    url: '/images/evergreen-aqua-logo.png',
+    width: 916,
+    height: 778,
   },
   /** 1200×630 social-share image used when a page has no image of its own. */
   defaultOgImage: {
-    url: '/images/sm-paramount-og.jpg',
-    alt: 'Evergreen Aqua water softeners and filters in Chennai',
+    url: '/images/evergreen-aqua-og.jpg',
+    alt: 'Evergreen Aqua Systems water softeners and filters in Chennai',
     width: 1200,
     height: 630,
   },
@@ -35,7 +35,7 @@ export const SITE = {
     { display: '+91 98413 13297', e164: '+919841313297' },
   ],
   whatsapp: { display: '+91 98413 13297', number: '919841313297' },
-  email: 'paramountwatersolution@gmail.com',
+  email: 'evergreenaquasystems@gmail.com',
   address: {
     street: 'No. 126, Kamakotti Nagar, 5th Street',
     locality: 'Pallikaranai',
@@ -60,5 +60,5 @@ export const fullAddress = (): string => {
   return `${a.street}, ${a.locality}, ${a.city} – ${a.postalCode}`;
 };
 
-export const whatsappLink = (text = 'Hi Evergreen Aqua, I would like to know more about your water solutions.'): string =>
+export const whatsappLink = (text = 'Hi Evergreen Aqua Systems, I would like to know more about your water solutions.'): string =>
   `https://wa.me/${SITE.whatsapp.number}?text=${encodeURIComponent(text)}`;

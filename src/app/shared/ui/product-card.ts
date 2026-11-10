@@ -53,7 +53,7 @@ import { InrPipe } from './inr.pipe';
     .card__title a { color: var(--color-text); text-decoration: none; }
     .card__title a:hover { color: var(--color-primary); }
     .media { border-radius: 0; --ratio: 4 / 3; position: relative; overflow: hidden;
-      background: radial-gradient(circle at 50% 70%, color-mix(in srgb, var(--color-accent, var(--color-primary)) 26%, #fff), color-mix(in srgb, var(--color-accent, var(--color-primary)) 8%, var(--color-surface)) 70%); }
+      background: radial-gradient(circle at 50% 70%, color-mix(in srgb, var(--color-accent, var(--color-primary)) 26%, #fff), color-mix(in srgb, var(--color-secondary) 4%, var(--color-surface)) 70%); }
     .media img { transition: transform .5s cubic-bezier(.2, .7, .2, 1); }
     .card:hover .media img { transform: scale(1.07) translateY(-2%); }
     /* water line at the foot of the image */
@@ -65,7 +65,7 @@ import { InrPipe } from './inr.pipe';
     .hl__list { list-style: none; margin: 0; padding: 0; display: grid; gap: .45rem .75rem; grid-template-columns: repeat(auto-fit, minmax(9.5rem, 1fr)); font-size: var(--font-size-xs); font-weight: 600; color: var(--color-text); }
     .hl__list li { display: flex; align-items: center; gap: .45rem; line-height: 1.25; }
     .hl__tick { flex: none; display: grid; place-items: center; width: 1.1rem; height: 1.1rem; border-radius: 50%; color: var(--color-on-primary);
-      background: linear-gradient(145deg, var(--color-accent, var(--color-primary)), var(--color-primary)); }
+      background: var(--color-secondary); }
     .card__footer { border-top: 1px solid var(--color-border); margin-top: auto; }
     .more { display: inline-flex; align-items: center; gap: .3rem; padding: .4rem .9rem; border-radius: var(--radius-pill); color: var(--color-primary); font-weight: 700; font-size: var(--font-size-sm);
       background: var(--color-primary-soft); transition: background .25s ease, color .25s ease, gap .25s ease; }

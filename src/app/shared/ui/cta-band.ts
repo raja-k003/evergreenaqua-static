@@ -26,7 +26,7 @@ import { Icon } from './icon';
       </div>
     </section>
   `,
-  styles: `.on-brand { --btn-fg: var(--color-on-primary); --btn-border: currentColor; color: var(--color-on-primary); } .on-brand:hover { --btn-bg: transparent; --btn-fg: var(--color-on-primary); --btn-border: var(--color-on-primary); text-decoration: underline; }`,
+  styles: `.on-brand { --btn-fg: var(--color-on-ink); --btn-border: currentColor; color: var(--color-on-ink); } .on-brand:hover { --btn-bg: transparent; --btn-fg: var(--color-on-ink); --btn-border: var(--color-on-ink); text-decoration: underline; }`,
 })
 export class CtaBand {
   readonly title = input('Not sure which system you need?');

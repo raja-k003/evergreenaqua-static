@@ -12,7 +12,7 @@ export const LEGACY_REDIRECTS: Record<string, string> = {
   '/ro-products': '/products/ro-water-purifiers',
   '/marine': '/products',
   '/contact-us': '/contact',
-  ...Object.fromEntries(BLOG_POSTS.map((p) => [p.legacyPath, `/blog/${p.slug}`])),
+  ...Object.fromEntries(BLOG_POSTS.filter((p) => p.legacyPath).map((p) => [p.legacyPath as string, `/blog/${p.slug}`])),
 };
 
 /**

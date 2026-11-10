@@ -1,4 +1,4 @@
-/** Rules of thumb ported from the previous Evergreen Aqua calculator. All outputs are rounded to whole numbers. */
+/** Rules of thumb ported from the previous Evergreen Aqua Systems calculator. All outputs are rounded to whole numbers. */
 
 const GALLON_IN_LITRES = 3.78541;
 const LITRES_PER_CUBIC_METRE = 1000;

@@ -21,7 +21,7 @@ import { Icon } from '../../shared/ui/icon';
 export class Services {
   protected readonly site = SITE;
   protected readonly breadcrumbs = crumbs({ label: 'Services' });
-  protected readonly img = image('technician-twin-vessel-installation', 'Evergreen Aqua technician beside a twin-vessel filter installation');
+  protected readonly img = image('technician-twin-vessel-installation', 'Evergreen Aqua Systems technician beside a twin-vessel filter installation');
   protected readonly services = [
     { icon: 'gauge', title: 'On-site water testing', text: 'We measure hardness, iron and turbidity at your tap and explain what they mean for your home.' },
     { icon: 'wrench', title: 'Installation', text: 'Softeners, filters and RO purifiers installed neatly with no civil work, usually within a day.' },

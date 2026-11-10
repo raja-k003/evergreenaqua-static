@@ -38,7 +38,7 @@ export class ProductDetail {
   protected readonly product: Product = findProduct(this.route.snapshot.paramMap.get('slug'))!;
   protected readonly fromPrice = lowestPrice(this.product);
   protected readonly site = SITE;
-  protected readonly wa = whatsappLink(`Hi Evergreen Aqua, I'm interested in the ${this.product.name}.`);
+  protected readonly wa = whatsappLink(`Hi Evergreen Aqua Systems, I'm interested in the ${this.product.name}.`);
   protected readonly breadcrumbs = crumbs({ label: 'Products', path: '/products' }, { label: this.product.name });
   protected readonly related = this.product.related.map((s) => findProduct(s)).filter((p): p is Product => !!p);
   protected readonly automatic = computed(() => this.product.models?.filter((m) => m.operation === 'Automatic') ?? []);

@@ -1,48 +1,31 @@
-<section class="hero" aria-labelledby="hero-title" (pointermove)="track($event)">
-  <div class="water" aria-hidden="true">
-    <svg class="wave wv1" viewBox="0 0 2400 200" preserveAspectRatio="none"><path d="M0 110 Q300 30 600 110 T1200 110 T1800 110 T2400 110 V200 H0Z"/></svg>
-    <svg class="wave wv2" viewBox="0 0 2400 200" preserveAspectRatio="none"><path d="M0 100 Q300 170 600 100 T1200 100 T1800 100 T2400 100 V200 H0Z"/></svg>
-    <span class="splash"><i></i><i></i><i></i></span>
-    <svg class="wave wv3" viewBox="0 0 2400 200" preserveAspectRatio="none"><path d="M0 120 Q300 60 600 120 T1200 120 T1800 120 T2400 120 V200 H0Z"/></svg>
-    @for (b of bubbles; track $index) {
-      <i class="wb" [style.left.%]="b.x" [style.bottom.%]="b.y" [style.width.rem]="b.size" [style.animation-delay.s]="b.delay" [style.animation-duration.s]="b.dur"></i>
-    }
-  </div>
-  <div class="container hero__grid">
-    <div class="hero__copy">
-      <p class="eyebrow">{{ site.yearsOfExperience }} years of water expertise in Chennai</p>
+<section class="hero" aria-labelledby="hero-title">
+  <app-bubble-field />
+  <div class="container hero__inner">
+    <div class="hero__left">
+      <p class="hero__label">[ {{ site.yearsOfExperience }} years of water expertise in Chennai ]</p>
       <h1 id="hero-title">Soft, clean water for every tap in your home</h1>
-      <p class="lead">
-        Welcome to Evergreen Aqua Water Solutions, with {{ site.yearsOfExperience }} years of experience where water quality meets excellence. Indulge in the luxury of softer hair and skin with our advanced WATER SOFTENERS. Enhance purity through our SAND, IRON, and CARBON FILTERS. Experience the Evergreen Aqua difference, offering not just water solutions but a lifestyle upgrade. Enjoy potential yearly savings of up to 20% on water heating costs. Elevate your water experience with Evergreen Aqua – redefining purity, health, and savings.
-      </p>
-      <div class="btn-row">
-        <a appButton size="lg" routerLink="/contact">Book a free water test <app-icon name="arrow-right" [size]="18" /></a>
-        <a appButton size="lg" variant="outline" routerLink="/calculator">Calculate water softening chemistry</a>
+      <div class="hero__cta">
+        <a class="pill pill--primary" routerLink="/contact"><span>Book a free water test</span><span class="orb"><app-icon name="arrow-right" [size]="16" /></span></a>
+        <a class="pill" routerLink="/calculator"><span>Calculate water softening chemistry</span></a>
       </div>
+    </div>
+    <div class="hero__right">
+      <p>{{ site.defaultDescription }}</p>
       <ul class="trust">
         @for (t of trust; track t.label) {
-          <li><app-icon [name]="t.icon" [size]="18" /> {{ t.label }}</li>
+          <li><app-icon [name]="t.icon" [size]="16" /> {{ t.label }}</li>
         }
       </ul>
-      <p class="hint">*Manual softeners and filters.</p>
+      <div class="hero__cue" aria-hidden="true"><app-icon name="chevron-down" [size]="14" /> Scroll</div>
     </div>
-    <div class="hero__media">
-      <div class="shapes" aria-hidden="true">
-        @for (s of shapes; track $index) {
-          <span class="shape" [class]="'shape ' + s.kind" [style.--d]="s.d" [style.left.%]="s.x" [style.top.%]="s.y" [style.width.rem]="s.size" [style.height.rem]="s.size" [style.animation-delay.s]="s.delay" [style.animation-duration.s]="s.dur"></span>
-        }
-      </div>
-      <span class="halo"></span><span class="halo-ring"></span>
-      <div class="badge-float"><strong>{{ site.yearsOfExperience }}+</strong><span>years of water expertise</span></div>
-      <div class="machines">
-        @for (m of machines; track m.src) {
-          <figure class="machine" [class]="'machine ' + m.cls">
-            <img [ngSrc]="m.src" [alt]="m.alt" [width]="m.w" [height]="m.h" priority sizes="(min-width: 900px) 12vw, 28vw" />
-            <span class="pool" aria-hidden="true"></span>
-          </figure>
-        }
-      </div>
-    </div>
+  </div>
+</section>
+
+<section class="hero-intro" aria-label="About Evergreen Aqua Systems">
+  <div class="container">
+    <p class="lead">
+      Welcome to Evergreen Aqua Systems, with {{ site.yearsOfExperience }} years of experience where water quality meets excellence. Indulge in the luxury of softer hair and skin with our advanced WATER SOFTENERS. Enhance purity through our SAND, IRON, and CARBON FILTERS. Experience the Evergreen Aqua Systems difference, offering not just water solutions but a lifestyle upgrade. Enjoy potential yearly savings of up to 20% on water heating costs. Elevate your water experience with Evergreen Aqua Systems – redefining purity, health, and savings.
+    </p>
   </div>
 </section>
 

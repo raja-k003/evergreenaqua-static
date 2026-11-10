@@ -17,6 +17,12 @@ describe('theme presets', () => {
       expect(contrastRatio(k.onPrimary, k.primary)).toBeGreaterThanOrEqual(4.5);
       expect(contrastRatio(k.onPrimary, k.primaryHover)).toBeGreaterThanOrEqual(4.5);
       expect(contrastRatio(k.danger, k.surface)).toBeGreaterThanOrEqual(4.5);
+      expect(contrastRatio(k.secondary, k.surface)).toBeGreaterThanOrEqual(4.5);
+      expect(contrastRatio(k.secondary, k.secondarySoft)).toBeGreaterThanOrEqual(4.5);
+      expect(contrastRatio(k.onSecondary, k.secondary)).toBeGreaterThanOrEqual(4.5);
+      expect(contrastRatio(k.info, k.surface)).toBeGreaterThanOrEqual(4.5);
+      expect(contrastRatio(k.warning, k.surface)).toBeGreaterThanOrEqual(4.5);
+      expect(contrastRatio('#f1f5f9', k.ink)).toBeGreaterThanOrEqual(7);
     });
   }
 

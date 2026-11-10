@@ -39,7 +39,7 @@ $desktop: 1080px;
   display: flex; align-items: center; gap: .6rem;
   text-decoration: none; color: var(--color-text); flex-shrink: 0;
   &__mark { position: relative; display: grid; place-items: center; width: 2.5rem; height: 2.5rem; border-radius: .75rem; color: var(--color-on-primary);
-    background: linear-gradient(145deg, var(--color-accent, var(--color-primary)), var(--color-primary));
+    background: var(--color-secondary);
     box-shadow: 0 6px 16px color-mix(in srgb, var(--color-primary) 35%, transparent), inset 0 1px 0 rgb(255 255 255 / .35);
     transition: transform .3s cubic-bezier(.3, 1.6, .5, 1);
     svg { animation: hdr-bob 4s ease-in-out infinite alternate; } }
@@ -87,7 +87,7 @@ $desktop: 1080px;
 @keyframes hdr-bob { to { transform: translateY(-2px); } }
 
 /* shimmering quote button */
-.quote { position: relative; overflow: hidden; background: linear-gradient(135deg, var(--color-primary), color-mix(in srgb, var(--color-primary) 60%, var(--color-accent, var(--color-primary))));
+.quote { position: relative; overflow: hidden; background: var(--color-primary);
   box-shadow: 0 6px 18px color-mix(in srgb, var(--color-primary) 30%, transparent);
   &::after { content: ''; position: absolute; inset: 0; background: linear-gradient(105deg, transparent 35%, rgb(255 255 255 / .35) 50%, transparent 65%); translate: -120% 0; animation: hdr-shine 4.5s ease-in-out infinite; }
   &:hover { transform: translateY(-1px); } }
@@ -131,3 +131,5 @@ $desktop: 1080px;
 @media (prefers-reduced-motion: reduce) {
   .site-header::after, .brand__mark svg, .quote::after, .has-sub.is-open > .sub, .nav.is-open { animation: none; }
 }
+
+.brand__logo { display: block; height: 52px; width: auto; }

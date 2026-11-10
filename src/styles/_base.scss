@@ -28,6 +28,20 @@
   --shadow-md: 0 4px 10px rgb(15 23 42 / 0.06), 0 12px 28px rgb(15 23 42 / 0.07);
   --shadow-lg: 0 18px 50px rgb(15 23 42 / 0.12);
 
+  /* Derived colour roles (resolved on :root so every theme and custom colour feeds them).
+     primary = actions / active / selected; secondary = decorative hue; ink = dark bands;
+     neutral surfaces carry the content; status colours never follow the theme. */
+  --color-primary-tint: color-mix(in srgb, var(--color-primary) 6%, var(--color-surface));
+  --color-primary-line: color-mix(in srgb, var(--color-primary) 30%, var(--color-border));
+  --color-secondary-tint: color-mix(in srgb, var(--color-secondary) 7%, var(--color-surface));
+  --color-ink-mid: color-mix(in srgb, var(--color-ink) 84%, var(--color-secondary));
+  --color-on-ink: #f1f5f9;
+  --color-on-ink-muted: #b6c2d4;
+  --color-info-soft: color-mix(in srgb, var(--color-info) 9%, var(--color-surface));
+  --color-warning-soft: color-mix(in srgb, var(--color-warning) 10%, var(--color-surface));
+  --color-success-soft: color-mix(in srgb, var(--color-success) 9%, var(--color-surface));
+  --color-danger-soft: color-mix(in srgb, var(--color-danger) 9%, var(--color-surface));
+
   --header-height: 4.25rem;
   --container: 76rem;
   --transition: 160ms ease;

@@ -18,7 +18,7 @@ describe('SeoService', () => {
 
   it('sets title with the site template, description and canonical', () => {
     seo.setPage({ title: 'Sand filters', description: 'Clear water.', path: '/products/sand-filters' });
-    expect(doc.title).toBe('Sand filters | Evergreen Aqua');
+    expect(doc.title).toBe('Sand filters | Evergreen Aqua Systems');
     expect(content('meta[name=description]')).toBe('Clear water.');
     expect(q('link[rel=canonical]')[0].getAttribute('href')).toBe(`${SITE.baseUrl}/products/sand-filters`);
     expect(content('meta[name=robots]')).toContain('index, follow');

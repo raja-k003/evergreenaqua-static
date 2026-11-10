@@ -28,7 +28,7 @@ export const PAGES = {
   about: {
     path: '/about',
     title: 'About Us – 25 Years of Water Treatment in Chennai',
-    description: 'Evergreen Aqua has spent 25 years solving hard water, iron and turbidity problems for Chennai homes and businesses. Our vision, mission and approach.',
+    description: 'Evergreen Aqua Systems has spent 25 years solving hard water, iron and turbidity problems for Chennai homes and businesses. Our vision, mission and approach.',
     indexable: true,
     changefreq: 'yearly',
     priority: 0.6,
@@ -52,7 +52,7 @@ export const PAGES = {
   products: {
     path: '/products',
     title: 'Water Softeners, Filters & RO Purifiers – Products',
-    description: 'Compare Evergreen Aqua water softeners, sand, iron and carbon filters, softener resin and RO + UV purifiers, with model prices.',
+    description: 'Compare Evergreen Aqua Systems water softeners, sand, iron and carbon filters, softener resin and RO + UV purifiers, with model prices.',
     indexable: true,
     changefreq: 'monthly',
     priority: 0.9,
@@ -76,7 +76,7 @@ export const PAGES = {
   testimonials: {
     path: '/testimonials',
     title: 'Customer Reviews & Testimonials',
-    description: 'What Chennai homeowners say about their Evergreen Aqua water softeners and filters: softer water, no more scale and longer-lasting appliances.',
+    description: 'What Chennai homeowners say about their Evergreen Aqua Systems water softeners and filters: softer water, no more scale and longer-lasting appliances.',
     indexable: true,
     changefreq: 'monthly',
     priority: 0.5,
@@ -92,7 +92,7 @@ export const PAGES = {
   careers: {
     path: '/careers',
     title: 'Careers – Join Our Team in Chennai',
-    description: 'Full-time openings at Evergreen Aqua in Chennai: customer service, technical support, marketing and operations.',
+    description: 'Full-time openings at Evergreen Aqua Systems in Chennai: customer service, technical support, marketing and operations.',
     indexable: true,
     changefreq: 'monthly',
     priority: 0.4,
@@ -100,7 +100,7 @@ export const PAGES = {
   gallery: {
     path: '/gallery',
     title: 'Installation Gallery – Our Completed Projects',
-    description: 'Photos of water softener, sand, iron and carbon filter installations completed by Evergreen Aqua at homes and apartments across Chennai.',
+    description: 'Photos of water softener, sand, iron and carbon filter installations completed by Evergreen Aqua Systems at homes and apartments across Chennai.',
     indexable: true,
     changefreq: 'monthly',
     priority: 0.5,

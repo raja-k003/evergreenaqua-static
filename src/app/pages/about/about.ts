@@ -23,7 +23,7 @@ export class About {
 
   protected readonly site = SITE;
   protected readonly breadcrumbs = crumbs({ label: 'About us' });
-  protected readonly img = image('sm-paramount-team-installation', 'Evergreen Aqua team beside a newly installed water softener');
+  protected readonly img = image('sm-paramount-team-installation', 'Evergreen Aqua Systems team beside a newly installed water softener');
 
   /** Figures shown on the intro stats band. */
   protected readonly stats = [
@@ -34,13 +34,13 @@ export class About {
   protected readonly counts = signal(this.stats.map((s) => s.target));
 
   protected readonly benefits = [
-    { title: 'Prevents plumbing issues', text: 'Stops scale deposition on fittings.' },
-    { title: 'Preserves utensil shine', text: 'Maintains shine for longer.' },
-    { title: 'Pipeline protection', text: 'Prevents corrosion and scale build-up.' },
-    { title: 'Easy installation, lightweight', text: 'Quick setup, no civil work needed.' },
-    { title: 'Zero maintenance', text: 'No replacements required.' },
-    { title: 'Energy efficient', text: 'Operates without electricity (manual models), cutting bills.' },
-    { title: 'Convenient recharging, low-pressure use', text: 'Simple recharge; soft water even at low pressures.' },
+    { icon: 'wrench', title: 'Prevents plumbing issues', text: 'Stops scale deposition on fittings.' },
+    { icon: 'utensils', title: 'Preserves utensil shine', text: 'Maintains shine for longer.' },
+    { icon: 'shield', title: 'Pipeline protection', text: 'Prevents corrosion and scale build-up.' },
+    { icon: 'timer', title: 'Easy installation, lightweight', text: 'Quick setup, no civil work needed.' },
+    { icon: 'sparkle', title: 'Zero maintenance', text: 'No replacements required.' },
+    { icon: 'leaf', title: 'Energy efficient', text: 'Operates without electricity (manual models), cutting bills.' },
+    { icon: 'gauge', title: 'Convenient recharging, low-pressure use', text: 'Simple recharge; soft water even at low pressures.' },
   ];
 
   protected readonly filters = [

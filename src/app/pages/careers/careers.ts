@@ -17,7 +17,7 @@ import { StateView } from '../../shared/ui/state';
     <app-page-header
       [breadcrumbs]="breadcrumbs"
       eyebrow="Careers"
-      title="Join the Evergreen Aqua team"
+      title="Join the Evergreen Aqua Systems team"
       lead="We are a growing Chennai team focused on great service, practical skills and doing the job right."
     />
 

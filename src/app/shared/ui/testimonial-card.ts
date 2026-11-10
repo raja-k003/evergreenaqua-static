@@ -56,7 +56,7 @@ import { Icon } from './icon';
       border: 1.5px solid transparent; box-shadow: 0 12px 30px color-mix(in srgb, var(--color-primary) 10%, transparent);
       transition: transform .35s cubic-bezier(.2, .7, .2, 1), box-shadow .35s ease; }
     figure::after { content: ''; position: absolute; right: -3.5rem; bottom: -3.5rem; width: 10rem; height: 10rem; border-radius: 50%; pointer-events: none;
-      background: radial-gradient(circle, color-mix(in srgb, var(--color-accent, var(--color-primary)) 20%, transparent), transparent 70%); transition: transform .5s ease; }
+      background: radial-gradient(circle, color-mix(in srgb, var(--color-secondary) 10%, transparent), transparent 70%); transition: transform .5s ease; }
     figure:hover { transform: translateY(-6px); box-shadow: 0 24px 46px color-mix(in srgb, var(--color-primary) 22%, transparent); }
     figure:hover::after { transform: scale(1.5); }
     .q { color: var(--color-accent, var(--color-primary)); opacity: .5; }
@@ -65,7 +65,7 @@ import { Icon } from './icon';
     figcaption { position: relative; z-index: 1; display: flex; align-items: center; gap: .85rem; padding-top: 1rem; border-top: 1px solid var(--color-border); font-size: var(--font-size-sm); line-height: 1.3; }
     figcaption strong { display: block; font-size: var(--font-size-md); }
     .avatar { flex: none; display: grid; place-items: center; width: 3.5rem; height: 3.5rem; border-radius: 50%; overflow: hidden; font-weight: 700; color: var(--color-on-primary);
-      background: linear-gradient(145deg, var(--color-accent, var(--color-primary)), var(--color-primary)); box-shadow: 0 0 0 3px var(--color-surface), 0 0 0 5px color-mix(in srgb, var(--color-accent, var(--color-primary)) 55%, transparent); }
+      background: var(--color-secondary); box-shadow: 0 0 0 3px var(--color-surface), 0 0 0 5px color-mix(in srgb, var(--color-secondary) 28%, transparent); }
     .avatar svg, .avatar img { width: 100%; height: 100%; object-fit: cover; display: block; }
     .avatar svg { background: linear-gradient(160deg, color-mix(in srgb, var(--color-accent, var(--color-primary)) 35%, #fff), color-mix(in srgb, var(--color-primary) 25%, #fff)); }
     .hair { fill: var(--hair); } .skin { fill: var(--skin); } .shade { filter: brightness(.88); } .cloth { fill: var(--cloth); }

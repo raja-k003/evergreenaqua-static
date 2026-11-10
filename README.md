@@ -1,6 +1,6 @@
-# Evergreen Aqua — Angular SSR website
+# Evergreen Aqua Systems — Angular SSR website
 
-Responsive, accessible, SEO-first website for **Evergreen Aqua** (Chennai), built with
+Responsive, accessible, SEO-first website for **Evergreen Aqua Systems** (Chennai), built with
 Angular 22 (standalone components, signals, zoneless), Angular SSR + prerendering, and a 5-preset
 dynamic theme system.
 
@@ -32,8 +32,8 @@ Dependencies are only Angular, Express and RxJS. No UI kit, icon font or web fon
 ### Images (self-hosted)
 
 All images live in `public/images/` as optimised WebP with descriptive file names
-(e.g. `terrace-softener-installation.webp`), plus `sm-paramount-logo.png` and a 1200×630
-social-share image `sm-paramount-og.jpg`. The brochure is `public/brochures/sm-paramount-brochure.pdf`.
+(e.g. `terrace-softener-installation.webp`), plus `evergreen-aqua-logo.png` and a 1200×630
+social-share image `evergreen-aqua-og.jpg`. The brochure is `public/brochures/sm-paramount-brochure.pdf`.
 Nothing loads from the old domain.
 
 `src/app/core/data/image-manifest.json` maps each file name to its original WordPress upload. To
@@ -110,7 +110,7 @@ drops below 4.5:1 contrast. All component styles use only `--color-*` tokens.
 ### SeoService (`core/seo/seo.service.ts`)
 One call per page: `seo.setPage({ title, description, path, image?, type?, noindex?, breadcrumbs?, jsonLd?, article? })`
 
-- Title via `Title` (template `%s | Evergreen Aqua`), description clamped to 160 chars
+- Title via `Title` (template `%s | Evergreen Aqua Systems`), description clamped to 160 chars
 - Canonical built from `SITE.baseUrl`; tracking params, fragments and trailing slashes stripped
 - Robots: `index, follow, max-image-preview:large` by default; `noindex, follow` and **no canonical**
   for noindex pages (avoids mixed signals)

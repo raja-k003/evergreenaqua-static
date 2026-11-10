@@ -74,7 +74,7 @@ import { PageHeader } from '../../shared/ui/page-header';
 export class RoPurifiers {
   protected readonly items = RO_PURIFIERS;
   protected readonly breadcrumbs = crumbs({ label: 'Products', path: '/products' }, { label: 'RO water purifiers' });
-  protected readonly wa = (name: string) => whatsappLink(`Hi Evergreen Aqua, I'm interested in the ${name}.`);
+  protected readonly wa = (name: string) => whatsappLink(`Hi Evergreen Aqua Systems, I'm interested in the ${name}.`);
 
   constructor() {
     const p = PAGES.ro;
